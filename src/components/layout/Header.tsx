@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Container } from "./Container";
-import { Heading } from "./Heading";
 import { cn } from "@/lib/utils";
 
 interface HeaderProps {
@@ -44,12 +43,12 @@ export function Header({ transparentInitially = true }: HeaderProps) {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 w-full h-20 z-50 transition-all duration-500 ease-architectural flex items-center",
+        "fixed top-0 left-0 w-full h-20 z-50 transition-all duration-500 flex items-center",
         isScrolled
-          ? "bg-brand-alabaster/95 backdrop-blur-md border-b border-brand-gold/20 shadow-sm"
+          ? "bg-white border-b border-black/8 shadow-none"
           : isTransparent
           ? "bg-transparent border-b border-transparent"
-          : "bg-brand-alabaster border-b border-brand-gold/10"
+          : "bg-white border-b border-black/8"
       )}
     >
       <Container className="flex items-center justify-between">
@@ -80,13 +79,13 @@ export function Header({ transparentInitially = true }: HeaderProps) {
                   "font-sans text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-500 relative py-2 block",
                   isTransparent
                     ? isActive
-                      ? "text-brand-gold"
+                      ? "text-[#E40F14]"
                       : "text-white/80 hover:text-white"
                     : isActive
-                    ? "text-brand-red font-semibold"
-                    : "text-brand-charcoal/80 hover:text-brand-gold",
+                    ? "text-[#E40F14] font-semibold"
+                    : "text-black/60 hover:text-black",
                   // Underline hover effect
-                  "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-brand-gold hover:after:w-full after:transition-all after:duration-500 after:ease-architectural"
+                  "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-[#E40F14] hover:after:w-full after:transition-all after:duration-500"
                 )}
               >
                 {link.name}

@@ -1,127 +1,141 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export function ContactForm() {
+  const [focused, setFocused] = useState<string | null>(null);
+
   return (
-    <form className="w-full max-w-2xl space-y-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-        {/* Name Input */}
+    <form className="w-full space-y-10" noValidate>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+        {/* Name */}
         <div className="relative group">
           <input
             type="text"
-            id="name"
+            id="contact-name"
             name="name"
             required
             placeholder=" "
-            className="peer w-full bg-transparent border-b border-brand-charcoal/30 py-3 text-base text-brand-charcoal placeholder-transparent focus:outline-none focus:border-brand-gold transition-colors duration-500 ease-architectural"
+            onFocus={() => setFocused("name")}
+            onBlur={() => setFocused(null)}
+            className="peer w-full bg-transparent border-b border-black/20 py-3 text-sm text-black placeholder-transparent focus:outline-none transition-colors duration-300"
+            style={{ borderBottomColor: focused === "name" ? "#E40F14" : undefined }}
           />
           <label
-            htmlFor="name"
-            className="absolute left-0 top-3 -translate-y-7 scale-75 origin-top-left text-xs uppercase tracking-widest text-brand-stone peer-placeholder-shown:text-base peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:text-brand-gold peer-focus:-translate-y-7 peer-focus:scale-75 transition-all duration-500 ease-architectural pointer-events-none"
+            htmlFor="contact-name"
+            className="absolute left-0 top-3 -translate-y-6 scale-75 origin-top-left text-[10px] uppercase tracking-widest text-black/40 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#E40F14] transition-all duration-300 pointer-events-none"
           >
-            Your Name
+            Full Name
           </label>
         </div>
 
-        {/* Email Input */}
+        {/* Email */}
         <div className="relative group">
           <input
             type="email"
-            id="email"
+            id="contact-email"
             name="email"
             required
             placeholder=" "
-            className="peer w-full bg-transparent border-b border-brand-charcoal/30 py-3 text-base text-brand-charcoal placeholder-transparent focus:outline-none focus:border-brand-gold transition-colors duration-500 ease-architectural"
+            onFocus={() => setFocused("email")}
+            onBlur={() => setFocused(null)}
+            className="peer w-full bg-transparent border-b border-black/20 py-3 text-sm text-black placeholder-transparent focus:outline-none transition-colors duration-300"
+            style={{ borderBottomColor: focused === "email" ? "#E40F14" : undefined }}
           />
           <label
-            htmlFor="email"
-            className="absolute left-0 top-3 -translate-y-7 scale-75 origin-top-left text-xs uppercase tracking-widest text-brand-stone peer-placeholder-shown:text-base peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:text-brand-gold peer-focus:-translate-y-7 peer-focus:scale-75 transition-all duration-500 ease-architectural pointer-events-none"
+            htmlFor="contact-email"
+            className="absolute left-0 top-3 -translate-y-6 scale-75 origin-top-left text-[10px] uppercase tracking-widest text-black/40 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#E40F14] transition-all duration-300 pointer-events-none"
           >
             Email Address
           </label>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-        {/* Phone Input */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+        {/* Phone */}
         <div className="relative group">
           <input
             type="tel"
-            id="phone"
+            id="contact-phone"
             name="phone"
             placeholder=" "
-            className="peer w-full bg-transparent border-b border-brand-charcoal/30 py-3 text-base text-brand-charcoal placeholder-transparent focus:outline-none focus:border-brand-gold transition-colors duration-500 ease-architectural"
+            onFocus={() => setFocused("phone")}
+            onBlur={() => setFocused(null)}
+            className="peer w-full bg-transparent border-b border-black/20 py-3 text-sm text-black placeholder-transparent focus:outline-none transition-colors duration-300"
+            style={{ borderBottomColor: focused === "phone" ? "#E40F14" : undefined }}
           />
           <label
-            htmlFor="phone"
-            className="absolute left-0 top-3 -translate-y-7 scale-75 origin-top-left text-xs uppercase tracking-widest text-brand-stone peer-placeholder-shown:text-base peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:text-brand-gold peer-focus:-translate-y-7 peer-focus:scale-75 transition-all duration-500 ease-architectural pointer-events-none"
+            htmlFor="contact-phone"
+            className="absolute left-0 top-3 -translate-y-6 scale-75 origin-top-left text-[10px] uppercase tracking-widest text-black/40 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#E40F14] transition-all duration-300 pointer-events-none"
           >
             Phone Number
           </label>
         </div>
 
-        {/* Project Type Dropdown */}
+        {/* Project Type */}
         <div className="relative group">
           <select
-            id="projectType"
+            id="contact-project-type"
             name="projectType"
             required
-            className="peer w-full bg-transparent border-b border-brand-charcoal/30 py-3 text-base text-brand-charcoal focus:outline-none focus:border-brand-gold transition-colors duration-500 ease-architectural appearance-none"
+            onFocus={() => setFocused("type")}
+            onBlur={() => setFocused(null)}
+            className="peer w-full bg-transparent border-b border-black/20 py-3 text-sm text-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer"
+            style={{ borderBottomColor: focused === "type" ? "#E40F14" : undefined }}
           >
-            <option value="" disabled selected hidden></option>
-            <option value="residential">Residential Architecture</option>
+            <option value="" disabled selected hidden />
+            <option value="residential">Luxury Residential</option>
+            <option value="hospitality">Hospitality & Restaurant</option>
             <option value="commercial">Commercial Design</option>
-            <option value="interior">Luxury Interior Design</option>
-            <option value="landscape">Landscape Architecture</option>
+            <option value="interior">Interior Design Only</option>
             <option value="other">Other Inquiry</option>
           </select>
-          {/* Custom Arrow */}
-          <div className="absolute right-0 bottom-4 pointer-events-none text-brand-stone group-hover:text-brand-gold transition-colors duration-300">
-            <svg
-              className="size-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M19 9l-7 7-7-7"
-              />
+          <div className="absolute right-0 bottom-4 pointer-events-none text-black/30">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
           <label
-            htmlFor="projectType"
-            className="absolute left-0 top-3 -translate-y-7 scale-75 origin-top-left text-xs uppercase tracking-widest text-brand-stone peer-placeholder-shown:text-base peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:text-brand-gold peer-focus:-translate-y-7 peer-focus:scale-75 transition-all duration-500 ease-architectural pointer-events-none"
+            htmlFor="contact-project-type"
+            className="absolute left-0 -top-5 text-[10px] uppercase tracking-widest text-black/40 pointer-events-none"
           >
             Project Type
           </label>
         </div>
       </div>
 
-      {/* Message Textarea */}
+      {/* Message */}
       <div className="relative group">
         <textarea
-          id="message"
+          id="contact-message"
           name="message"
           rows={4}
           required
           placeholder=" "
-          className="peer w-full bg-transparent border-b border-brand-charcoal/30 py-3 text-base text-brand-charcoal placeholder-transparent focus:outline-none focus:border-brand-gold transition-colors duration-500 ease-architectural resize-none"
-        ></textarea>
+          onFocus={() => setFocused("message")}
+          onBlur={() => setFocused(null)}
+          className="peer w-full bg-transparent border-b border-black/20 py-3 text-sm text-black placeholder-transparent focus:outline-none transition-colors duration-300 resize-none"
+          style={{ borderBottomColor: focused === "message" ? "#E40F14" : undefined }}
+        />
         <label
-          htmlFor="message"
-          className="absolute left-0 top-3 -translate-y-7 scale-75 origin-top-left text-xs uppercase tracking-widest text-brand-stone peer-placeholder-shown:text-base peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:text-brand-gold peer-focus:-translate-y-7 peer-focus:scale-75 transition-all duration-500 ease-architectural pointer-events-none"
+          htmlFor="contact-message"
+          className="absolute left-0 top-3 -translate-y-6 scale-75 origin-top-left text-[10px] uppercase tracking-widest text-black/40 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#E40F14] transition-all duration-300 pointer-events-none"
         >
-          Message / Brief Description
+          Project Brief
         </label>
       </div>
 
-      <div className="pt-6">
-        <Button type="submit" size="lg" className="w-full sm:w-auto">
-          Send Message
-        </Button>
+      {/* Submit */}
+      <div className="pt-4">
+        <motion.button
+          type="submit"
+          whileHover={{ backgroundColor: "#c00d11" }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full sm:w-auto px-12 py-4 bg-[#E40F14] rounded-full text-white text-xs uppercase tracking-[0.25em] font-medium transition-colors duration-300 focus:outline-none"
+        >
+          Send Inquiry
+        </motion.button>
       </div>
     </form>
   );

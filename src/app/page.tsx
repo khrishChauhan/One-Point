@@ -1,167 +1,91 @@
 import React from "react";
-import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Heading } from "@/components/layout/Heading";
-import { Button } from "@/components/ui/button";
-import { ProjectCard } from "@/components/shared/ProjectCard";
-import { CTA } from "@/components/shared/CTA";
+import { HeroSlideshow } from "@/components/shared/HeroSlideshow";
+import { AboutStudio } from "@/components/shared/AboutStudio";
+import { Services } from "@/components/shared/Services";
+import { GalleryGrid } from "@/components/shared/GalleryGrid";
+import { WhyOnePoint } from "@/components/shared/WhyOnePoint";
 import { ContactForm } from "@/components/shared/ContactForm";
 
-export default function Home() {
-  // Use actual high-resolution project images from the assets folder
-  const heroImage = "/assets/drive-download-20260605T132810Z-3-001/IMG_20201109_162908_1.jpg";
-  const projectImage1 = "/assets/drive-download-20260605T132810Z-3-001/IMG_20201109_162511.jpg";
-  const projectImage2 = "/assets/drive-download-20260605T132810Z-3-001/IMG_20201109_163444.jpg";
+export const metadata = {
+  title: "One Point Architecture Studio",
+  description:
+    "A multidisciplinary design practice based in Lucknow, specializing in high-end residential, hospitality, commercial, and institutional architecture.",
+};
 
+export default function Home() {
   return (
     <>
-      <Header />
+      <Header transparentInitially={true} />
 
-      <main className="flex-1 bg-brand-alabaster">
-        {/* Cinematic Hero Section */}
-        <div className="relative h-[80vh] min-h-[600px] w-full bg-brand-charcoal overflow-hidden">
-          <Image
-            src={heroImage}
-            alt="One Point Architecture Studio Hero"
-            fill
-            priority
-            className="object-cover opacity-60 filter contrast-110 brightness-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-transparent to-brand-charcoal/40" />
-          
-          <div className="absolute inset-0 flex items-center">
-            <Container>
-              <div className="max-w-4xl space-y-6">
-                <Heading variant="meta" className="text-brand-gold">
-                  Lucknow-Based Luxury Studio
-                </Heading>
-                <Heading variant="hero" className="text-white font-normal">
-                  Enduring Form.<br />Meticulous Space.
-                </Heading>
-                <p className="font-sans font-light text-brand-alabaster/80 text-lg md:text-xl max-w-xl leading-relaxed pt-2">
-                  A high-end architectural and luxury interior design practice led by Ar. Neha Vaish.
-                </p>
-                <div className="pt-4 flex flex-wrap gap-4">
-                  <Button variant="default">
-                    Explore Portfolio
-                  </Button>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-brand-red">
-                    Our Philosophy
-                  </Button>
-                </div>
-              </div>
-            </Container>
-          </div>
-        </div>
+      <main>
+        {/* A. Hero Section */}
+        <HeroSlideshow />
 
-        {/* Foundation Showcase */}
-        <Section size="lg">
-          <Container>
+        {/* B. About Studio */}
+        <AboutStudio />
+
+        {/* C. Services */}
+        <Services />
+
+        {/* D. Featured Portfolio */}
+        <GalleryGrid />
+
+        {/* E. Why One Point */}
+        <WhyOnePoint />
+
+        {/* F. Contact */}
+        <section id="contact" className="bg-[#FAF9F6] py-24 md:py-36">
+          <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-              {/* Left Column: Architectural Philosophy */}
-              <div className="lg:col-span-5 space-y-8">
-                <Heading variant="meta">Design System Showcase</Heading>
-                <Heading variant="section" className="text-brand-red">
-                  The Foundations of Our Practice
-                </Heading>
-                <p className="font-sans font-light text-brand-charcoal/80 text-base leading-relaxed">
-                  The design system is structured around the **60-30-10 Rule**—60% Alabaster White backgrounds, 30% Deep Architectural Red structural accents, and 10% Luxury Champagne Gold details. The typography pairs the heritage and grace of *Playfair Display* headings with the technical precision of *Inter*.
-                </p>
-                <div className="border-t border-brand-gold/20 pt-8 space-y-6">
-                  <Heading variant="meta" className="text-brand-charcoal">Typography Scale Preview</Heading>
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-[10px] text-brand-stone font-mono block mb-1">Display.Title</span>
-                      <Heading variant="title" className="text-brand-red text-4xl sm:text-5xl">Luxury Living</Heading>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-brand-stone font-mono block mb-1">Heading.Section</span>
-                      <Heading variant="section">Contemporary Facade</Heading>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-brand-stone font-mono block mb-1">Heading.Card</span>
-                      <Heading variant="card">Structural Geometry</Heading>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Component Catalog Preview */}
-              <div className="lg:col-span-7 space-y-12">
-                <Heading variant="meta" className="text-brand-charcoal">Component Catalog Preview</Heading>
-                
-                {/* Project Card Demos */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <span className="text-[10px] text-brand-stone font-mono block mb-2">ProjectCard (Portrait)</span>
-                    <ProjectCard
-                      title="Hazratganj Villa"
-                      category="Residential Architecture"
-                      imageSrc={projectImage1}
-                      href="#"
-                      ratio="portrait"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-brand-stone font-mono block mb-2">ProjectCard (Landscape)</span>
-                    <ProjectCard
-                      title="Gomti Nagar Corporate"
-                      category="Commercial Interior"
-                      imageSrc={projectImage2}
-                      href="#"
-                      ratio="landscape"
-                    />
-                  </div>
-                </div>
-
-                {/* Buttons Preview */}
-                <div className="space-y-4 pt-6 border-t border-brand-gold/20">
-                  <span className="text-[10px] text-brand-stone font-mono block mb-2">Interactive Button States</span>
-                  <div className="flex flex-wrap gap-4">
-                    <Button variant="default">Primary CTA</Button>
-                    <Button variant="outline">Outline Highlight</Button>
-                    <Button variant="secondary">Dark Neutral</Button>
-                    <Button variant="ghost">Ghost link</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Call To Action */}
-        <CTA />
-
-        {/* Contact Form Section */}
-        <Section size="lg" className="bg-white">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-              <div className="lg:col-span-5 space-y-6">
-                <Heading variant="meta">Let&apos;s Collaborate</Heading>
-                <Heading variant="section" className="text-brand-red font-medium">
-                  Discuss Your Architectural Commission
-                </Heading>
-                <p className="font-sans font-light text-brand-stone text-base leading-relaxed">
-                  Lucknow-based luxury studio ready to accept inquiries for residential planning, boutique commercial workspaces, and high-end turnkey interiors. Contact us to schedule an initial consultation.
-                </p>
-                <div className="space-y-4 pt-6 text-sm">
-                  <p className="font-sans text-brand-charcoal">
-                    <strong className="font-semibold text-brand-red">Studio Address:</strong> Lucknow, Uttar Pradesh, India
+              {/* Left: Studio details */}
+              <div className="lg:col-span-4 space-y-8">
+                <div>
+                  <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-5">
+                    Get In Touch
                   </p>
-                  <p className="font-sans text-brand-charcoal">
-                    <strong className="font-semibold text-brand-red">Inquiries:</strong> info@onepoint.com
+                  <h2 className="font-serif font-light text-3xl md:text-4xl text-black leading-tight mb-6">
+                    Start Your
+                    <br />Project
+                  </h2>
+                  <p className="text-black/50 font-light text-sm leading-relaxed">
+                    We are currently accepting commissions for luxury
+                    residential interiors, boutique hospitality spaces, and
+                    architectural developments. Initial consultations are by
+                    appointment only.
                   </p>
                 </div>
+
+                {/* Contact details */}
+                <div className="space-y-5 pt-4">
+                  {[
+                    { label: "Studio", value: "Lucknow, Uttar Pradesh, India" },
+                    { label: "Email", value: "info@onepointstudio.in" },
+                    { label: "Phone", value: "+91 XXXXXXXXXX" },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="pl-4 border-l-2 border-[#E40F14]/30"
+                    >
+                      <p className="text-black/30 text-[10px] uppercase tracking-[0.25em] mb-1 font-light">
+                        {item.label}
+                      </p>
+                      <p className="text-black font-light text-sm">
+                        {item.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="lg:col-span-7">
+
+              {/* Right: Contact form */}
+              <div className="lg:col-span-8">
                 <ContactForm />
               </div>
             </div>
-          </Container>
-        </Section>
+          </div>
+        </section>
       </main>
 
       <Footer />

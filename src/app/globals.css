@@ -64,8 +64,8 @@
   --card-foreground: #1E1E1E;
   --popover: #FFFFFF;
   --popover-foreground: #1E1E1E;
-  --primary: #5C1311;
-  --primary-foreground: #FAF9F6;
+  --primary: #E40F14;
+  --primary-foreground: #FFFFFF;
   --secondary: #FFFFFF;
   --secondary-foreground: #5C1311;
   --muted: #FAF9F6;
@@ -88,7 +88,7 @@
   --sidebar-ring: #D4AF37;
   
   /* Brand-specific absolute tokens */
-  --brand-red: #5C1311;
+  --brand-red: #E40F14;
   --brand-gold: #D4AF37;
   --brand-alabaster: #FAF9F6;
   --brand-charcoal: #1E1E1E;
@@ -133,6 +133,30 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease forwards;
 }
