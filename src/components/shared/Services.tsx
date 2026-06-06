@@ -1,23 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   {
     title: "Architecture",
     desc: "From bespoke luxury residences to boutique hotels and commercial complexes, we design structures that endure in both form and function.",
+    img: "/assets/private house/IMG_20210223_112429.jpg",
   },
   {
     title: "Interior Design",
     desc: "Crafting atmospheric, human-centric interior spaces for hospitality, retail, and luxury residential projects, focusing on material honesty and spatial flow.",
+    img: "/assets/resturant/WhatsApp Image 2026-05-26 at 12.53.59.jpeg",
   },
   {
     title: "Landscape Design",
     desc: "Integrating the built environment with nature through thoughtful external site planning, sustainable planting strategies, and natural water systems.",
+    img: "/assets/resturant/WhatsApp Image 2026-05-26 at 12.54.03 (5).jpeg",
   },
   {
     title: "Urban Design",
     desc: "Master planning and community scale interventions that respond dynamically to the cultural, environmental, and infrastructure context of the modern city.",
+    img: "/assets/resturant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg",
   },
 ];
 
@@ -40,7 +45,7 @@ export function Services() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -48,13 +53,28 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group cursor-default"
+              className="group cursor-default relative overflow-hidden bg-white p-8 rounded-2xl border border-black/5 min-h-[320px] flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
             >
-              <div className="w-12 h-[1px] bg-black/10 mb-8 group-hover:bg-[#E40F14] group-hover:w-full transition-all duration-700 ease-out" />
-              <h3 className="font-serif text-2xl text-black mb-4 group-hover:text-[#E40F14] transition-colors duration-500">
-                {service.title}
-              </h3>
-              <p className="text-black/60 font-light text-[15px] leading-relaxed">
+              {/* Background Image Preview on Hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none z-0">
+                <Image
+                  src={service.img}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                />
+              </div>
+
+              {/* Decorative line */}
+              <div className="relative z-10">
+                <div className="w-12 h-[1px] bg-black/10 mb-8 group-hover:bg-[#E40F14] group-hover:w-full transition-all duration-700 ease-out" />
+                <h3 className="font-serif text-2xl text-black mb-4 group-hover:text-[#E40F14] transition-colors duration-500">
+                  {service.title}
+                </h3>
+              </div>
+              
+              <p className="relative z-10 text-black/60 font-light text-[14px] leading-relaxed group-hover:text-black/80 transition-colors duration-500">
                 {service.desc}
               </p>
             </motion.div>

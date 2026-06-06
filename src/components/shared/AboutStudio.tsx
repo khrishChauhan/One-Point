@@ -29,16 +29,35 @@ export function AboutStudio() {
               Led by Ar. Neha Vaish, Founder & Principal Architect
             </p>
 
-            <div className="space-y-6 mb-12">
+            <div className="space-y-8 mb-12">
               <p className="text-black/60 font-light text-base leading-relaxed">
                 One Point Architecture Studio is a multidisciplinary design practice based in Lucknow, specializing in high-end residential, hospitality, commercial, and institutional projects.
               </p>
-              <p className="text-black/60 font-light text-base leading-relaxed">
-                Our approach is deeply human-centric. We believe that architecture must respond to how people inhabit space—balancing emotional resonance with structural precision. Every project is an exploration of light, proportion, and material honesty.
-              </p>
-              <p className="text-black/60 font-light text-base leading-relaxed">
-                From broad urban interventions to meticulous interior detailing, we deliver spaces that endure beyond temporary design trends.
-              </p>
+              
+              <div className="grid grid-cols-1 gap-6 pt-4 border-t border-black/5">
+                {[
+                  {
+                    title: "Human-Centric Design",
+                    desc: "We believe architecture must respond to how people inhabit space—balancing emotional resonance with structural precision, light, and material honesty.",
+                  },
+                  {
+                    title: "End-to-End Project Management",
+                    desc: "From concept to commissioning, we oversee all aspects of site coordination, detailed drawings, vendor integration, and strict quality control.",
+                  },
+                  {
+                    title: "Sustainable & Future-Ready",
+                    desc: "Integrating solar-passive orientations, natural ventilation pathways, and locally sourced materials to create structures that endure responsibly.",
+                  },
+                ].map((pill, pidx) => (
+                  <div key={pidx} className="flex gap-4">
+                    <span className="text-[#E40F14] font-mono text-xs mt-1">0{pidx + 1}.</span>
+                    <div>
+                      <h4 className="font-serif text-lg text-black mb-1">{pill.title}</h4>
+                      <p className="text-black/50 font-light text-sm leading-relaxed">{pill.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <a
