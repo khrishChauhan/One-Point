@@ -122,7 +122,7 @@ export function ContactForm() {
           htmlFor="contact-message"
           className="absolute left-0 top-3 -translate-y-6 scale-75 origin-top-left text-[10px] uppercase tracking-widest text-black/40 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-[#E40F14] transition-all duration-300 pointer-events-none"
         >
-          Project Brief
+          Project Idea
         </label>
       </div>
 
@@ -132,7 +132,7 @@ export function ContactForm() {
           type="submit"
           whileHover={{ backgroundColor: "#c00d11" }}
           whileTap={{ scale: 0.98 }}
-          className="w-full sm:w-auto px-12 py-4 bg-[#E40F14] rounded-full text-white text-xs uppercase tracking-[0.25em] font-medium transition-colors duration-300 focus:outline-none"
+          className="w-full sm:w-auto px-12 py-4 bg-[#E40F14] rounded-xl text-white text-xs uppercase tracking-[0.25em] font-medium transition-colors duration-300 focus:outline-none"
         >
           Send Inquiry
         </motion.button>

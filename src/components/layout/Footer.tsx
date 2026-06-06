@@ -9,20 +9,20 @@ export function Footer() {
 
   const links = {
     studio: [
-      { name: "About Us", href: "/about" },
-      { name: "Our Services", href: "/services" },
+      { name: "About Us", href: "/#about" },
+      { name: "Our Services", href: "/#services" },
       { name: "Portfolio", href: "/portfolio" },
-      { name: "Contact", href: "/contact" },
+      { name: "Contact", href: "/#contact" },
     ],
     contact: [
-      { name: "info@onepoint.com", href: "mailto:info@onepoint.com" },
+      { name: "info@onepointstudio.in", href: "mailto:info@onepointstudio.in" },
       { name: "+91 XXXXXXXXXX", href: "tel:+91XXXXXXXXXX" },
       { name: "Lucknow, Uttar Pradesh, India", href: "#" },
     ],
   };
 
   return (
-    <footer className="bg-brand-charcoal text-white pt-20 pb-12 border-t border-brand-gold/10">
+    <footer className="bg-brand-charcoal text-white pt-20 pb-12 border-t border-white/10">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Logo & Statement */}
@@ -43,7 +43,7 @@ export function Footer() {
 
           {/* Studio Links */}
           <div className="space-y-6">
-            <Heading variant="meta" className="text-[10px] tracking-[0.2em] font-semibold text-brand-gold">
+            <Heading variant="meta" className="text-[10px] tracking-[0.2em] font-semibold text-[#E40F14]">
               Studio
             </Heading>
             <ul className="space-y-3">
@@ -62,7 +62,7 @@ export function Footer() {
 
           {/* Contact Details */}
           <div className="space-y-6">
-            <Heading variant="meta" className="text-[10px] tracking-[0.2em] font-semibold text-brand-gold">
+            <Heading variant="meta" className="text-[10px] tracking-[0.2em] font-semibold text-[#E40F14]">
               Contact
             </Heading>
             <ul className="space-y-3">

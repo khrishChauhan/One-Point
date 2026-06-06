@@ -2,54 +2,63 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { allImages, type ProjectImage } from "@/lib/images";
-import { LightboxModal } from "./LightboxModal";
+import { projects, type Project } from "@/lib/projects";
 
-// Updated categories for a general architecture portfolio
-const CATEGORIES = ["All", "Hospitality", "Residential", "Commercial"] as const;
+// Simplified categories for the homepage filter
+const CATEGORIES = ["All", "Hospitality", "Residences", "Commercial", "Landscape & Urban"] as const;
 type Category = typeof CATEGORIES[number];
 
-function GalleryItem({
-  image,
-  index,
-  onOpen,
-}: {
-  image: ProjectImage;
-  index: number;
-  onOpen: () => void;
-}) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: (index % 6) * 0.08, ease: "easeOut" }}
-      className="group relative overflow-hidden cursor-pointer bg-gray-100 rounded-xl"
-      style={{
-        gridRowEnd: index % 5 === 0 ? "span 2" : "span 1",
-      }}
-      onClick={onOpen}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: "easeOut" }}
+      className="group relative overflow-hidden bg-[#FAF9F6] rounded-xl border border-black/5"
     >
-      <div className="relative w-full h-full min-h-[320px] overflow-hidden">
+      <Link href={`/portfolio/${project.slug}`} className="block relative w-full aspect-[4/3] overflow-hidden">
         <Image
-          src={image.src}
-          alt={image.alt}
+          src={project.heroImage}
+          alt={project.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
         />
 
-        {/* Hover overlay with reduced opacity and refined layout */}
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-[#E40F14]/80 transition-colors duration-500 ease-out flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100">
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-[#E40F14]/90 transition-colors duration-500 ease-out flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100">
           <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-            <p className="text-white/80 text-[10px] uppercase tracking-[0.3em] mb-2 font-medium">
-              Featured Project
-            </p>
-            <p className="text-white text-xl font-serif">{image.title || "Project Title"}</p>
+            <span className="text-white/80 text-[9px] uppercase tracking-[0.3em] mb-2 font-medium block">
+              {project.category} &bull; {project.location}
+            </span>
+            <h3 className="text-white text-xl font-serif font-light">{project.title}</h3>
+            <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-medium mt-4 inline-flex items-center gap-1">
+              View Project
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </div>
         </div>
+      </Link>
+      
+      {/* Visual metadata visible below for screen readers and non-hover fallback */}
+      <div className="p-5 flex justify-between items-center bg-white">
+        <div>
+          <span className="text-[#E40F14] text-[9px] uppercase tracking-[0.2em] font-semibold">
+            {project.category}
+          </span>
+          <h4 className="text-black text-[15px] font-medium mt-1 truncate max-w-[200px] md:max-w-xs">
+            {project.title}
+          </h4>
+        </div>
+        <span className="text-black/30 text-xs font-light">
+          {project.year}
+        </span>
       </div>
     </motion.div>
   );
@@ -57,24 +66,26 @@ function GalleryItem({
 
 export function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Since we only have restaurant images, we'll use all of them for the 'All' tab
-  // and subset them for the other tabs just to demonstrate the filter functionality.
-  const filtered =
-    activeCategory === "All"
-      ? allImages.slice(0, 9)
-      : activeCategory === "Hospitality"
-      ? allImages.slice(0, 6)
-      : activeCategory === "Residential"
-      ? allImages.slice(6, 12)
-      : allImages.slice(12, 18);
-
-  const handleOpen = (idx: number) => setLightboxIndex(idx);
-  const handleClose = () => setLightboxIndex(null);
+  const filteredProjects = projects.filter((p) => {
+    if (activeCategory === "All") return true;
+    if (activeCategory === "Hospitality") {
+      return p.category === "Hotels" || p.category === "Resorts" || p.category === "Restaurants";
+    }
+    if (activeCategory === "Residences") {
+      return p.category === "Residences";
+    }
+    if (activeCategory === "Commercial") {
+      return p.category === "Commercial";
+    }
+    if (activeCategory === "Landscape & Urban") {
+      return p.category === "Landscape" || p.category === "Urban Design";
+    }
+    return false;
+  });
 
   return (
-    <section id="portfolio" className="bg-white py-24 md:py-36">
+    <section id="portfolio" className="bg-white py-24 md:py-36 border-b border-black/5">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
@@ -88,21 +99,21 @@ export function GalleryGrid() {
           </div>
 
           {/* Category filter */}
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-4 md:gap-6">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`text-[10px] uppercase tracking-[0.25em] pb-1 transition-all duration-300 relative ${
                   activeCategory === cat
-                    ? "text-black font-medium"
+                    ? "text-black font-semibold"
                     : "text-black/40 hover:text-black/70"
                 }`}
               >
                 {cat}
                 {activeCategory === cat && (
                   <motion.div
-                    layoutId="activeTab"
+                    layoutId="activeFeaturedTab"
                     className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#E40F14] rounded-full"
                   />
                 )}
@@ -111,42 +122,37 @@ export function GalleryGrid() {
           </div>
         </div>
 
-        {/* Masonry-style grid */}
+        {/* Responsive Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filtered.map((image, index) => (
+            {filteredProjects.slice(0, 6).map((project, index) => (
               <motion.div
-                key={`${image.src}-${activeCategory}`}
+                key={project.id}
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
               >
-                <GalleryItem
-                  image={image}
-                  index={index}
-                  onOpen={() => handleOpen(allImages.indexOf(image))}
-                />
+                <ProjectCard project={project} index={index} />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-      </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxIndex !== null && (
-          <LightboxModal
-            images={allImages}
-            initialIndex={lightboxIndex}
-            onClose={handleClose}
-          />
-        )}
-      </AnimatePresence>
+        {/* View All CTA */}
+        <div className="text-center mt-16 md:mt-20">
+          <Link
+            href="/portfolio"
+            className="inline-block border border-black/10 text-black px-10 py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-semibold hover:border-[#E40F14] hover:text-white hover:bg-[#E40F14] transition-all duration-500"
+          >
+            Explore Full Portfolio
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

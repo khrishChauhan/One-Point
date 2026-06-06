@@ -2,16 +2,18 @@ import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSlideshow } from "@/components/shared/HeroSlideshow";
-import { AboutStudio } from "@/components/shared/AboutStudio";
+import { TrustStrip } from "@/components/shared/TrustStrip";
+import { KeyBenefits } from "@/components/shared/KeyBenefits";
 import { Services } from "@/components/shared/Services";
 import { GalleryGrid } from "@/components/shared/GalleryGrid";
-import { WhyOnePoint } from "@/components/shared/WhyOnePoint";
+import { AboutStudio } from "@/components/shared/AboutStudio";
+import { Testimonials } from "@/components/shared/Testimonials";
 import { ContactForm } from "@/components/shared/ContactForm";
 
 export const metadata = {
   title: "One Point Architecture Studio",
   description:
-    "A multidisciplinary design practice based in Lucknow, specializing in high-end residential, hospitality, commercial, and institutional architecture.",
+    "A premium multidisciplinary design practice based in Lucknow, specializing in high-end residential, hospitality, commercial, and institutional architecture.",
 };
 
 export default function Home() {
@@ -20,22 +22,28 @@ export default function Home() {
       <Header transparentInitially={true} />
 
       <main>
-        {/* A. Hero Section */}
+        {/* Section 1: Hero Slideshow */}
         <HeroSlideshow />
 
-        {/* B. About Studio */}
-        <AboutStudio />
+        {/* Section 2: Trust Strip */}
+        <TrustStrip />
 
-        {/* C. Services */}
+        {/* Section 3: Key Benefits */}
+        <KeyBenefits />
+
+        {/* Section 4: Services Preview */}
         <Services />
 
-        {/* D. Featured Portfolio */}
+        {/* Section 5: Featured Portfolio */}
         <GalleryGrid />
 
-        {/* E. Why One Point */}
-        <WhyOnePoint />
+        {/* Section 6: Why One Point Architecture (About Studio / Founder Bio) */}
+        <AboutStudio />
 
-        {/* F. Contact */}
+        {/* Section 7: Testimonials */}
+        <Testimonials />
+
+        {/* Section 8: Contact / Lead Generation */}
         <section id="contact" className="bg-[#FAF9F6] py-24 md:py-36">
           <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -88,6 +96,7 @@ export default function Home() {
         </section>
       </main>
 
+      {/* Section 9: Footer */}
       <Footer />
     </>
   );

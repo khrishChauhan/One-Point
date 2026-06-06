@@ -4,21 +4,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-none border border-transparent bg-clip-padding text-sm font-semibold uppercase tracking-widest whitespace-nowrap transition-all duration-500 ease-architectural outline-none select-none focus-visible:border-brand-gold focus-visible:ring-3 focus-visible:ring-brand-gold/30 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-xl border border-transparent bg-clip-padding text-sm font-semibold uppercase tracking-widest whitespace-nowrap transition-all duration-500 ease-architectural outline-none select-none focus-visible:border-[#E40F14] focus-visible:ring-3 focus-visible:ring-[#E40F14]/30 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          "bg-brand-red text-white border-brand-red hover:bg-transparent hover:text-brand-gold hover:border-brand-gold border",
+          "bg-[#E40F14] text-white border-[#E40F14] hover:bg-transparent hover:text-[#E40F14] hover:border-[#E40F14] border",
         outline:
-          "border-brand-gold text-brand-gold bg-transparent hover:bg-brand-red hover:text-white hover:border-brand-red border",
+          "border-black text-black bg-transparent hover:bg-[#E40F14] hover:text-white hover:border-[#E40F14] border",
         secondary:
-          "bg-brand-charcoal text-white border-brand-charcoal hover:bg-transparent hover:text-brand-gold hover:border-brand-gold border",
+          "bg-brand-charcoal text-white border-brand-charcoal hover:bg-transparent hover:text-[#E40F14] hover:border-[#E40F14] border",
         ghost:
           "hover:bg-brand-alabaster hover:text-brand-red border border-transparent",
         destructive:
           "bg-destructive text-white hover:bg-destructive/80",
-        link: "text-brand-red underline-offset-4 hover:underline border-none p-0 h-auto bg-transparent hover:text-brand-gold",
+        link: "text-brand-red underline-offset-4 hover:underline border-none p-0 h-auto bg-transparent hover:text-[#E40F14]",
       },
       size: {
         default:

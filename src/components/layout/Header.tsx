@@ -31,10 +31,10 @@ export function Header({ transparentInitially = true }: HeaderProps) {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   // Determine if header should be transparent
@@ -143,7 +143,7 @@ export function Header({ transparentInitially = true }: HeaderProps) {
                 onClick={() => setIsOpen(false)}
                 className={cn(
                   "font-sans text-xl uppercase tracking-[0.2em] font-normal transition-all duration-500",
-                  isActive ? "text-brand-red font-semibold scale-105" : "text-brand-charcoal hover:text-brand-gold",
+                  isActive ? "text-[#E40F14] font-semibold scale-105" : "text-[#1E1E1E] hover:text-[#E40F14]",
                   "transition-transform transform",
                   isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 )}

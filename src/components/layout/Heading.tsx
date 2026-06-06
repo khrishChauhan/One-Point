@@ -48,7 +48,7 @@ export function Heading({
             variant === "card",
             
           // Label.Meta: Inter (sans-serif), 12px / 11px. Tracking 0.25em, Leading 1.4
-          "font-sans font-medium text-[11px] sm:text-xs tracking-[0.25em] uppercase leading-[1.4] text-brand-gold": 
+          "font-sans font-medium text-[11px] sm:text-xs tracking-[0.25em] uppercase leading-[1.4] text-[#E40F14]": 
             variant === "meta",
         },
         className

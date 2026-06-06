@@ -20,13 +20,13 @@ export function AboutStudio() {
             className="lg:col-span-6 lg:sticky lg:top-32"
           >
             <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-6">
-              The Studio
+              Why One Point
             </p>
             <h2 className="font-serif font-light text-4xl md:text-5xl text-black leading-tight mb-2">
-              One Point Architecture Studio
+              Architecture Built on Rigor & Empathy
             </h2>
             <p className="text-black/40 font-light text-lg mb-10">
-              Led by Ar. Neha Vaish
+              Led by Ar. Neha Vaish, Founder & Principal Architect
             </p>
 
             <div className="space-y-6 mb-12">
@@ -43,7 +43,7 @@ export function AboutStudio() {
 
             <a
               href="#contact"
-              className="inline-block border border-black/10 text-black px-8 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:border-[#E40F14] hover:text-[#E40F14] transition-colors duration-500"
+              className="inline-block border border-black/10 text-black px-8 py-3 rounded-xl text-xs uppercase tracking-[0.2em] font-medium hover:border-[#E40F14] hover:text-[#E40F14] transition-colors duration-500"
             >
               Meet the Team
             </a>
