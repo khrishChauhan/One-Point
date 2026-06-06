@@ -1,155 +1,123 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { projects, type Project } from "@/lib/projects";
+import { motion } from "framer-motion";
 
-// Simplified categories for the homepage filter
-const CATEGORIES = ["All", "Hospitality", "Residences", "Commercial", "Landscape & Urban"] as const;
-type Category = typeof CATEGORIES[number];
-
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: "easeOut" }}
-      className="group relative overflow-hidden bg-[#FAF9F6] rounded-xl border border-black/5"
-    >
-      <Link href={`/portfolio/${project.slug}`} className="block relative w-full aspect-[4/3] overflow-hidden">
-        <Image
-          src={project.heroImage}
-          alt={project.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          loading="lazy"
-        />
-
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-[#E40F14]/90 transition-colors duration-500 ease-out flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100">
-          <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-            <span className="text-white/80 text-[9px] uppercase tracking-[0.3em] mb-2 font-medium block">
-              {project.category} &bull; {project.location}
-            </span>
-            <h3 className="text-white text-xl font-serif font-light">{project.title}</h3>
-            <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-medium mt-4 inline-flex items-center gap-1">
-              View Project
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </Link>
-      
-      {/* Visual metadata visible below for screen readers and non-hover fallback */}
-      <div className="p-5 flex justify-between items-center bg-white">
-        <div>
-          <span className="text-[#E40F14] text-[9px] uppercase tracking-[0.2em] font-semibold">
-            {project.category}
-          </span>
-          <h4 className="text-black text-[15px] font-medium mt-1 truncate max-w-[200px] md:max-w-xs">
-            {project.title}
-          </h4>
-        </div>
-        <span className="text-black/30 text-xs font-light">
-          {project.year}
-        </span>
-      </div>
-    </motion.div>
-  );
-}
+// Curated list of 8 strong images for the homepage editorial grid
+const selectedWorks = [
+  {
+    src: "/assets/private residence/IMG_20210223_112429.jpg",
+    alt: "Private Residence Exterior Elevation",
+    projectTitle: "Private Residence",
+    projectSlug: "private-residence",
+    span: "md:col-span-2 aspect-[16/10]",
+  },
+  {
+    src: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.53.59.jpeg",
+    alt: "Changoz Restaurant Dining Space",
+    projectTitle: "Changoz Restaurant",
+    projectSlug: "changoz-restaurant",
+    span: "md:col-span-1 aspect-[3/4]",
+  },
+  {
+    src: "/assets/private residence/IMG_20201109_162908_1.jpg",
+    alt: "Private Residence Double-Height Courtyard",
+    projectTitle: "Private Residence",
+    projectSlug: "private-residence",
+    span: "md:col-span-1 aspect-square md:-mt-12",
+  },
+  {
+    src: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.54.03 (16).jpeg",
+    alt: "Changoz Restaurant Lounge Area",
+    projectTitle: "Changoz Restaurant",
+    projectSlug: "changoz-restaurant",
+    span: "md:col-span-2 aspect-[16/10]",
+  },
+  {
+    src: "/assets/private residence/IMG_20201109_163444.jpg",
+    alt: "Private Residence Clerestory Windows",
+    projectTitle: "Private Residence",
+    projectSlug: "private-residence",
+    span: "md:col-span-1 aspect-[3/4] md:-mt-24",
+  },
+  {
+    src: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.54.00 (2).jpeg",
+    alt: "Changoz Restaurant Atmosphere",
+    projectTitle: "Changoz Restaurant",
+    projectSlug: "changoz-restaurant",
+    span: "md:col-span-1 aspect-square",
+  },
+  {
+    src: "/assets/private residence/IMG_20210223_112445_1.jpg",
+    alt: "Private Residence Terrace",
+    projectTitle: "Private Residence",
+    projectSlug: "private-residence",
+    span: "md:col-span-1 aspect-[4/3] md:mt-12",
+  },
+];
 
 export function GalleryGrid() {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
-
-  const filteredProjects = projects.filter((p) => {
-    if (activeCategory === "All") return true;
-    if (activeCategory === "Hospitality") {
-      return p.category === "Hotels" || p.category === "Resorts" || p.category === "Restaurants";
-    }
-    if (activeCategory === "Residences") {
-      return p.category === "Residences";
-    }
-    if (activeCategory === "Commercial") {
-      return p.category === "Commercial";
-    }
-    if (activeCategory === "Landscape & Urban") {
-      return p.category === "Landscape" || p.category === "Urban Design";
-    }
-    return false;
-  });
-
   return (
     <section id="portfolio" className="bg-white py-24 md:py-36 border-b border-black/5">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div>
-            <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] mb-4 font-light">
-              Featured Portfolio
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-black leading-tight">
-              Selected Works
-            </h2>
-          </div>
-
-          {/* Category filter */}
-          <div className="flex flex-wrap gap-4 md:gap-6">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`text-[10px] uppercase tracking-[0.25em] pb-1 transition-all duration-300 relative ${
-                  activeCategory === cat
-                    ? "text-black font-semibold"
-                    : "text-black/40 hover:text-black/70"
-                }`}
-              >
-                {cat}
-                {activeCategory === cat && (
-                  <motion.div
-                    layoutId="activeFeaturedTab"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#E40F14] rounded-full"
-                  />
-                )}
-              </button>
-            ))}
-          </div>
+        <div className="max-w-3xl mb-20 md:mb-28">
+          <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] mb-4 font-light">
+            Featured Works
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-black leading-tight">
+            Selected Photography
+          </h2>
+          <p className="text-black/50 font-light text-sm md:text-base mt-6 leading-relaxed max-w-lg">
+            A curated glimpse into our spatial narratives, showcasing light, form, and material honesty in both hospitality and residential design.
+          </p>
         </div>
 
-        {/* Responsive Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.slice(0, 6).map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-              >
-                <ProjectCard project={project} index={index} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {/* Responsive Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
+          {selectedWorks.map((work, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: (index % 3) * 0.1, ease: "easeOut" }}
+              className={`${work.span} group relative overflow-hidden rounded-xl bg-[#FAF9F6] border border-black/5`}
+            >
+              <Link href={`/portfolio/${work.projectSlug}`} className="block relative w-full h-full">
+                <Image
+                  src={work.src}
+                  alt={work.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+                  loading="lazy"
+                />
 
-        {/* View All CTA */}
-        <div className="text-center mt-16 md:mt-20">
+                {/* Hover overlay with only project title */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-[#E40F14]/90 transition-colors duration-500 ease-out flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100">
+                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                    <span className="text-white/70 text-[9px] uppercase tracking-[0.3em] mb-2 font-medium block">
+                      View Project Detail
+                    </span>
+                    <h3 className="text-white text-2xl md:text-3xl font-serif font-light leading-tight">
+                      {work.projectTitle}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* View Complete Portfolio CTA */}
+        <div className="text-center mt-24 md:mt-32">
           <Link
             href="/portfolio"
-            className="inline-block border border-black/10 text-black px-10 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-semibold hover:border-[#E40F14] hover:text-white hover:bg-[#E40F14] transition-all duration-500"
+            className="inline-block border border-black/10 text-black px-12 py-5 rounded-full text-xs uppercase tracking-[0.25em] font-semibold hover:border-[#E40F14] hover:text-white hover:bg-[#E40F14] transition-all duration-500"
           >
-            Explore Full Portfolio
+            View Complete Portfolio
           </Link>
         </div>
       </div>

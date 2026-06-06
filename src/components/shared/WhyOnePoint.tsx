@@ -30,7 +30,7 @@ export function WhyOnePoint() {
             className="lg:col-span-5 lg:sticky lg:top-32"
           >
             <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-6">
-              Why One Point
+              WHY ONE POINT
             </p>
             <h2 className="font-serif font-light text-4xl md:text-5xl text-white leading-tight mb-8">
               Architecture Built on Rigor & Empathy

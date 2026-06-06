@@ -42,7 +42,7 @@ export function HeroSlideshow() {
         >
           <Image
             src={heroImages[current]}
-            alt="One Point Architecture Studio Portfolio"
+            alt="ONE POINT ARCHITECTURE STUDIO Portfolio"
             fill
             sizes="100vw"
             priority
@@ -74,13 +74,13 @@ export function HeroSlideshow() {
           </div>
 
           <h1 className="font-serif text-white font-light text-5xl md:text-7xl lg:text-[84px] leading-[1.05] tracking-tight mb-6 pointer-events-auto">
-            Where Vision
+            Where Ideas
             <br />
-            <span className="font-normal text-white/90">Meets Structure</span>
+            <span className="font-normal text-white/90">Take Shape</span>
           </h1>
 
           <p className="text-white/70 font-light text-lg md:text-xl tracking-wide mb-12">
-            Architecture &bull; Interiors &bull; Landscape &bull; Urban Design
+            Architecture &bull; Interiors &bull; Urban Design
           </p>
 
           <div className="flex flex-wrap items-center gap-6 pointer-events-auto">
@@ -107,7 +107,7 @@ export function HeroSlideshow() {
           animate={isReady ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
         >
-          <span className="block text-white text-4xl font-serif font-light mb-2">15+</span>
+          <span className="block text-white text-4xl font-serif font-light mb-2">8+</span>
           <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Years Experience</span>
         </motion.div>
         <motion.div
@@ -115,7 +115,7 @@ export function HeroSlideshow() {
           animate={isReady ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1, delay: 1.0, ease: "easeOut" }}
         >
-          <span className="block text-white text-4xl font-serif font-light mb-2">40+</span>
+          <span className="block text-white text-4xl font-serif font-light mb-2">180+</span>
           <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Projects Delivered</span>
         </motion.div>
         <motion.div
@@ -123,8 +123,8 @@ export function HeroSlideshow() {
           animate={isReady ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
         >
-          <span className="block text-white text-4xl font-serif font-light mb-2">12</span>
-          <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Cities Served</span>
+          <span className="block text-white text-4xl font-serif font-light mb-2">100%</span>
+          <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Client Satisfaction</span>
         </motion.div>
       </div>
 
@@ -146,18 +146,6 @@ export function HeroSlideshow() {
             />
           </button>
         ))}
-      </div>
-
-      {/* Scroll indicator right edge */}
-      <div className="hidden md:flex absolute right-6 md:right-16 bottom-0 top-0 z-20 flex-col justify-end pb-12 pointer-events-none items-center">
-        <span className="text-white/40 text-[9px] uppercase tracking-[0.4em] origin-bottom-right -rotate-90 mb-16">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 40, 0], opacity: [0.2, 1, 0.2] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"
-        />
       </div>
     </section>
   );

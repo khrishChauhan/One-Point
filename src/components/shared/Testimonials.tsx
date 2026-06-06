@@ -7,21 +7,21 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "One Point Architecture Studio transformed our vision for the Alila Hills Resort into a stunning spatial reality. Ar. Neha Vaish and her team brought a rare combination of structural rigor and delicate artistic sensitivity. The result is a property that feels both incredibly luxurious and completely native to its mountainous terrain.",
+      "One Point Architecture Studio transformed our vision for Changoz Restaurant into a stunning spatial reality. Ar. Neha Vaish and her team brought a rare combination of structural rigor and delicate artistic sensitivity. The result is a dining space that feels both incredibly luxurious and warm.",
     author: "Vikram Malhotra",
-    title: "Managing Director, Alila Hospitality Group",
+    title: "Founder, Changoz Hospitality",
   },
   {
     quote:
-      "Working with One Point to design our family home was a masterclass in collaboration. They listened deeply to how we lived and structured the residence around our daily routines. The courtyard design brings an abundance of light and air, making our urban villa feel like a private oasis.",
+      "Working with One Point to design our Private Residence was a masterclass in collaboration. They listened deeply to how we lived and structured the residence around our daily routines. The courtyard design brings an abundance of light and air, making our home feel like a private oasis.",
     author: "Rohan & Shalini Sen",
-    title: "Owners, Serene Oasis Villa",
+    title: "Owners, Private Residence",
   },
   {
     quote:
-      "For our commercial headquarters, we wanted a workspace that broke away from typical sterile layouts. One Point delivered a highly dynamic environment that integrates biophilic partitions and flexible social zones. It has fundamentally improved our team's daily collaboration and energy.",
+      "For our corporate offices, we wanted a workspace that broke away from typical sterile layouts. One Point delivered a highly dynamic environment that integrates flexible zones and warm materials. It has fundamentally improved our team's daily collaboration and energy.",
     author: "Ananya Roy",
-    title: "Chief Operations Officer, Vanguard Tech",
+    title: "Operations Director",
   },
 ];
 

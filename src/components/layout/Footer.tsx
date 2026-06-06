@@ -30,14 +30,14 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <Image 
                 src="/assets/logo.png" 
-                alt="One Point Architecture Studio Logo" 
+                alt="ONE POINT ARCHITECTURE STUDIO Logo" 
                 width={180} 
                 height={40} 
                 className="w-auto h-8 sm:h-10 brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
               />
             </Link>
             <p className="font-sans font-light text-brand-stone text-sm max-w-sm leading-relaxed">
-              Lucknow-based luxury architecture and interior design firm, shaping contemporary residential and commercial landmarks under Ar. Neha Vaish.
+              Where Ideas Take Shape. Lucknow-based firm specializing in Architecture, Interiors, and Urban Design.
             </p>
           </div>
 

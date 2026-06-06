@@ -20,7 +20,7 @@ export function AboutStudio() {
             className="lg:col-span-6 lg:sticky lg:top-32"
           >
             <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-6">
-              Why One Point
+              WHY ONE POINT
             </p>
             <h2 className="font-serif font-light text-4xl md:text-5xl text-black leading-tight mb-2">
               Architecture Built on Rigor & Empathy
@@ -31,7 +31,7 @@ export function AboutStudio() {
 
             <div className="space-y-8 mb-12">
               <p className="text-black/60 font-light text-base leading-relaxed">
-                One Point Architecture Studio is a multidisciplinary design practice based in Lucknow, specializing in high-end residential, hospitality, commercial, and institutional projects.
+                One Point Architecture Studio is a Lucknow-based design practice specializing in Architecture, Interiors, and Urban Design. Guided by Ar. Neha Vaish, our work balances structural precision with material honesty to shape contemporary residential and commercial landmarks.
               </p>
               
               <div className="grid grid-cols-1 gap-6 pt-4 border-t border-black/5">
@@ -41,12 +41,12 @@ export function AboutStudio() {
                     desc: "We believe architecture must respond to how people inhabit space—balancing emotional resonance with structural precision, light, and material honesty.",
                   },
                   {
-                    title: "End-to-End Project Management",
-                    desc: "From concept to commissioning, we oversee all aspects of site coordination, detailed drawings, vendor integration, and strict quality control.",
-                  },
-                  {
                     title: "Sustainable & Future-Ready",
                     desc: "Integrating solar-passive orientations, natural ventilation pathways, and locally sourced materials to create structures that endure responsibly.",
+                  },
+                  {
+                    title: "End-to-End Project Management",
+                    desc: "From concept to commissioning, we oversee all aspects of site coordination, detailed drawings, vendor integration, and strict quality control.",
                   },
                 ].map((pill, pidx) => (
                   <div key={pidx} className="flex gap-4">
@@ -78,7 +78,7 @@ export function AboutStudio() {
           >
             <Image
               src={aboutImage.src}
-              alt="One Point Architecture Studio"
+              alt="ONE POINT ARCHITECTURE STUDIO"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

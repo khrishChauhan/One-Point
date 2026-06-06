@@ -15,8 +15,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "One Point Architecture Studio | Premium Architecture & Interiors",
-  description: "One Point Architecture Studio is a premier architecture and interior design firm specializing in contemporary, high-end residential and commercial spaces.",
+  title: "One Point Architecture Studio",
+  description: "One Point Architecture Studio is a premier architecture, interior, and urban design practice based in Lucknow. Where Ideas Take Shape.",
 };
 
 export default function RootLayout({

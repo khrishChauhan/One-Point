@@ -5,24 +5,39 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Architecture",
+    title: "Architectural Design",
     desc: "From bespoke luxury residences to boutique hotels and commercial complexes, we design structures that endure in both form and function.",
-    img: "/assets/private house/IMG_20210223_112429.jpg",
+    img: "/assets/private residence/IMG_20210223_112429.jpg",
   },
   {
     title: "Interior Design",
     desc: "Crafting atmospheric, human-centric interior spaces for hospitality, retail, and luxury residential projects, focusing on material honesty and spatial flow.",
-    img: "/assets/resturant/WhatsApp Image 2026-05-26 at 12.53.59.jpeg",
+    img: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.53.59.jpeg",
   },
   {
-    title: "Landscape Design",
-    desc: "Integrating the built environment with nature through thoughtful external site planning, sustainable planting strategies, and natural water systems.",
-    img: "/assets/resturant/WhatsApp Image 2026-05-26 at 12.54.03 (5).jpeg",
+    title: "Luxury Residences",
+    desc: "Bespoke high-end homes designed to reflect the unique lifestyle and personality of our clients, merging comfort with architectural elegance.",
+    img: "/assets/private residence/IMG_20201109_163332.jpg",
   },
   {
-    title: "Urban Design",
+    title: "Commercial Spaces",
+    desc: "Innovative workspaces and retail environments that enhance brand identity, foster collaboration, and prioritize user experience.",
+    img: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.54.03.jpeg",
+  },
+  {
+    title: "Institutional Projects",
+    desc: "Purpose-driven architecture for educational, cultural, and civic institutions, focusing on sustainability, community impact, and longevity.",
+    img: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.54.03 (3).jpeg",
+  },
+  {
+    title: "Urban Design & Planning",
     desc: "Master planning and community scale interventions that respond dynamically to the cultural, environmental, and infrastructure context of the modern city.",
-    img: "/assets/resturant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg",
+    img: "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg",
+  },
+  {
+    title: "Space Planning & Renovation",
+    desc: "Strategic restructuring and modernization of existing spaces to maximize efficiency, aesthetic value, and programmatic utility.",
+    img: "/assets/private residence/IMG_20201109_163452.jpg",
   },
 ];
 
@@ -45,7 +60,7 @@ export function Services() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}

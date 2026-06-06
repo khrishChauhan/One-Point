@@ -79,12 +79,13 @@ export function ContactForm() {
             id="contact-project-type"
             name="projectType"
             required
+            defaultValue=""
             onFocus={() => setFocused("type")}
             onBlur={() => setFocused(null)}
             className="peer w-full bg-transparent border-b border-black/20 py-3 text-sm text-black focus:outline-none transition-colors duration-300 appearance-none cursor-pointer"
             style={{ borderBottomColor: focused === "type" ? "#E40F14" : undefined }}
           >
-            <option value="" disabled selected hidden />
+            <option value="" disabled hidden />
             <option value="residential">Luxury Residential</option>
             <option value="hospitality">Hospitality & Restaurant</option>
             <option value="commercial">Commercial Design</option>

@@ -56,7 +56,7 @@ export function Header({ transparentInitially = true }: HeaderProps) {
         <Link href="/" className="group z-50">
           <Image 
             src="/assets/logo.png" 
-            alt="One Point Architecture Studio Logo" 
+            alt="ONE POINT ARCHITECTURE STUDIO Logo" 
             width={240} 
             height={54} 
             className={cn(

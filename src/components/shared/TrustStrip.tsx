@@ -3,18 +3,16 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "10+", label: "Years of Design Excellence" },
-  { value: "150+", label: "Projects Delivered" },
-  { value: "12+", label: "Cities Served" },
+  { value: "8+", label: "Years Experience" },
+  { value: "180+", label: "Projects Delivered" },
   { value: "100%", label: "Client Satisfaction" },
-  { value: "08", label: "National Awards" },
 ];
 
 export function TrustStrip() {
   return (
     <section className="bg-white border-y border-black/5 py-12 md:py-16">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-black/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-black/5">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -22,9 +20,7 @@ export function TrustStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-              className={`flex flex-col items-center justify-center text-center p-4 ${
-                index >= 2 ? "pt-6 md:pt-4" : ""
-              }`}
+              className="flex flex-col items-center justify-center text-center p-4"
             >
               <span className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-black tracking-tight mb-2">
                 {stat.value}

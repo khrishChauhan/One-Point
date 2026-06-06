@@ -3,7 +3,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSlideshow } from "@/components/shared/HeroSlideshow";
 import { TrustStrip } from "@/components/shared/TrustStrip";
-import { KeyBenefits } from "@/components/shared/KeyBenefits";
 import { Services } from "@/components/shared/Services";
 import { GalleryGrid } from "@/components/shared/GalleryGrid";
 import { AboutStudio } from "@/components/shared/AboutStudio";
@@ -13,7 +12,7 @@ import { ContactForm } from "@/components/shared/ContactForm";
 export const metadata = {
   title: "One Point Architecture Studio",
   description:
-    "A premium multidisciplinary design practice based in Lucknow, specializing in high-end residential, hospitality, commercial, and institutional architecture.",
+    "One Point Architecture Studio is a Lucknow-based design practice specializing in Architecture, Interiors, and Urban Design. Where Ideas Take Shape.",
 };
 
 export default function Home() {
@@ -28,10 +27,7 @@ export default function Home() {
         {/* Section 2: Trust Strip */}
         <TrustStrip />
 
-        {/* Section 3: Key Benefits */}
-        <KeyBenefits />
-
-        {/* Section 4: Services Preview */}
+        {/* Section 3: Services Preview */}
         <Services />
 
         {/* Section 5: Featured Portfolio */}
