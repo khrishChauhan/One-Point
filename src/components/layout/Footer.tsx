@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 import { Heading } from "./Heading";
 
@@ -27,12 +28,13 @@ export function Footer() {
           {/* Logo & Statement */}
           <div className="md:col-span-2 space-y-6">
             <Link href="/" className="inline-block">
-              <Heading
-                variant="meta"
-                className="text-white text-sm tracking-[0.3em] font-semibold animate-pulse"
-              >
-                O N E &nbsp; P O I N T
-              </Heading>
+              <Image 
+                src="/assets/logo.png" 
+                alt="One Point Architecture Studio Logo" 
+                width={180} 
+                height={40} 
+                className="w-auto h-8 sm:h-10 brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
+              />
             </Link>
             <p className="font-sans font-light text-brand-stone text-sm max-w-sm leading-relaxed">
               Lucknow-based luxury architecture and interior design firm, shaping contemporary residential and commercial landmarks under Ar. Neha Vaish.

@@ -54,26 +54,18 @@ export function Header({ transparentInitially = true }: HeaderProps) {
     >
       <Container className="flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="group z-50 flex items-center gap-2">
+        <Link href="/" className="group z-50">
           <Image 
             src="/assets/logo.png" 
             alt="One Point Architecture Studio Logo" 
-            width={40} 
+            width={180} 
             height={40} 
             className={cn(
-              "transition-all duration-500",
+              "transition-all duration-500 w-auto h-8 sm:h-10",
               isTransparent ? "brightness-0 invert" : "brightness-100"
             )}
+            priority
           />
-          <Heading
-            variant="meta"
-            className={cn(
-              "text-sm tracking-[0.3em] font-semibold text-brand-charcoal hover:text-brand-gold transition-colors duration-500 hidden sm:block",
-              isTransparent ? "text-white" : "text-brand-charcoal"
-            )}
-          >
-            O N E &nbsp; P O I N T
-          </Heading>
         </Link>
 
         {/* Desktop Navigation */}
