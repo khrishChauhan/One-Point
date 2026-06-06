@@ -32,13 +32,17 @@ export default function Home() {
         <AboutStudio />
 
         {/* ⑤ Why One Point — numbered reasons + Meet the Team CTA */}
-        <WhyOnePoint />
+        <div className="hidden md:block">
+          <WhyOnePoint />
+        </div>
 
         {/* ⑥ Team — founder profiles (linked from WhyOnePoint CTA) */}
         <Team />
 
         {/* ⑦ Testimonials — client quotes */}
-        <Testimonials />
+        <div className="hidden md:block">
+          <Testimonials />
+        </div>
 
         {/* ⑧ Contact — studio info + inquiry form */}
         <section id="contact" className="bg-[#FAF9F6] py-28 md:py-40 border-t border-black/5 relative overflow-hidden">

@@ -112,16 +112,16 @@ export function HeroSlideshow() {
             Architecture &bull; Interiors &bull; Urban Design
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pointer-events-auto">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 pointer-events-auto">
             <a
               href="#portfolio"
-              className="bg-white text-black px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#E40F14] hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+              className="bg-white text-black px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#E40F14] hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl text-center"
             >
               Explore Our Work
             </a>
             <a
               href="#contact"
-              className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-all duration-300 hover:scale-105 active:scale-95 text-center backdrop-blur-sm"
             >
               Start Your Project
             </a>

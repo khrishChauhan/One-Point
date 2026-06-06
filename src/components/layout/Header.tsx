@@ -105,13 +105,16 @@ export function Header() {
         initial={{ opacity: 0, y: -40, x: "-50%" }}
         animate={{ opacity: 1, y: 0, x: "-50%" }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="fixed top-4 md:top-6 left-1/2 w-[calc(100%-2rem)] max-w-screen-xl z-50"
+        className="fixed top-4 md:top-6 left-1/2 w-[calc(100%-2rem)] max-w-screen-xl z-[60]"
       >
-        <div className="bg-white/70 backdrop-blur-2xl saturate-[1.5] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-2xl px-5 md:px-8 py-3 md:py-4 flex items-center justify-between transition-all duration-500">
+        <div className={cn(
+          "backdrop-blur-2xl saturate-[1.5] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] px-5 md:px-8 py-3 md:py-4 flex items-center justify-between transition-all duration-500",
+          isOpen ? "bg-white/0 border-transparent shadow-none rounded-full" : "bg-white/70 rounded-full"
+        )}>
           
           {/* Logo */}
           <Link href="/" className="group z-50 flex-shrink-0 relative">
-            <div className="relative h-[32px] md:h-[40px] transition-all duration-500">
+            <div className="relative h-[36px] md:h-[40px] transition-all duration-500">
               <Image
                 src="/assets/logo.png"
                 alt="ONE POINT ARCHITECTURE STUDIO"
@@ -172,26 +175,26 @@ export function Header() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex flex-col items-end justify-center w-10 h-10 gap-1.5 focus:outline-none z-50"
+            className="md:hidden relative flex flex-col items-center justify-center w-11 h-11 gap-1.5 focus:outline-none z-50 bg-black/5 hover:bg-black/10 rounded-full transition-colors duration-300"
             aria-label="Toggle Navigation Menu"
             aria-expanded={isOpen}
           >
             <span
               className={cn(
-                "h-[1.5px] w-6 rounded-full bg-neutral-900 transition-all duration-500 origin-right",
-                isOpen && "rotate-[-45deg] translate-y-[7px]"
+                "absolute h-[1.5px] w-5 rounded-full bg-neutral-900 transition-all duration-500",
+                isOpen ? "rotate-45" : "-translate-y-1.5"
               )}
             />
             <span
               className={cn(
-                "h-[1.5px] w-4 rounded-full bg-neutral-900 transition-all duration-500",
+                "absolute h-[1.5px] w-5 rounded-full bg-neutral-900 transition-all duration-500",
                 isOpen && "opacity-0 scale-x-0"
               )}
             />
             <span
               className={cn(
-                "h-[1.5px] w-5 rounded-full bg-neutral-900 transition-all duration-500 origin-right",
-                isOpen && "rotate-[45deg] -translate-y-[7px]"
+                "absolute h-[1.5px] w-5 rounded-full bg-neutral-900 transition-all duration-500",
+                isOpen ? "-rotate-45" : "translate-y-1.5"
               )}
             />
           </button>
@@ -201,40 +204,37 @@ export function Header() {
       {/* Mobile Menu Overlay - Premium Glassmorphism */}
       <div
         className={cn(
-          "fixed inset-0 bg-white/95 backdrop-blur-3xl flex flex-col justify-center items-center z-40 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
+          "fixed inset-0 bg-white/98 backdrop-blur-3xl flex flex-col justify-center items-center z-50 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
           isOpen
             ? "opacity-100 visible pointer-events-auto"
             : "opacity-0 invisible pointer-events-none"
         )}
       >
-        {/* Logo inside mobile menu */}
-        <Link href="/" className="absolute top-8 left-6" onClick={() => setIsOpen(false)}>
-          <Image
-            src="/assets/logo.png"
-            alt="ONE POINT ARCHITECTURE STUDIO"
-            width={280}
-            height={70}
-            className="w-auto h-[32px] object-contain opacity-90"
-          />
-        </Link>
-
         <nav className="flex flex-col items-center gap-8 mt-12 w-full px-8">
           {navLinks.map((link, idx) => {
             const isActive = activeLinkName === link.name;
             return (
-              <div key={link.name} className="overflow-hidden">
+              <div key={link.name} className="overflow-hidden relative pb-2">
                 <Link
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={cn(
-                    "block font-serif text-3xl md:text-4xl uppercase tracking-[0.15em] font-light transition-all duration-500",
-                    isActive ? "text-[#E40F14]" : "text-neutral-800 hover:text-[#E40F14]",
+                    "block font-serif text-4xl md:text-5xl uppercase tracking-[0.1em] font-light transition-all duration-500 relative z-10",
+                    isActive ? "text-neutral-900" : "text-neutral-400 hover:text-neutral-900",
                     isOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
                   )}
                   style={{ transitionDelay: `${isOpen ? idx * 100 + 200 : 0}ms` }}
                 >
                   {link.name}
                 </Link>
+                {/* Mobile Active Underline Animation */}
+                <div 
+                  className={cn(
+                    "absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#E40F14] transition-all duration-700",
+                    isActive && isOpen ? "w-1/2 opacity-100" : "w-0 opacity-0"
+                  )}
+                  style={{ transitionDelay: `${isOpen ? idx * 100 + 400 : 0}ms` }}
+                />
               </div>
             );
           })}
@@ -242,13 +242,23 @@ export function Header() {
 
         <div 
           className={cn(
-            "absolute bottom-12 text-center transition-all duration-700 delay-700",
-            isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            "absolute bottom-12 text-center transition-all duration-700",
+            isOpen ? "opacity-100 translate-y-0 delay-700" : "opacity-0 translate-y-4"
           )}
         >
-          <p className="text-neutral-500 text-[10px] uppercase tracking-[0.4em]">
+          <p className="text-neutral-400 text-[10px] uppercase tracking-[0.4em] mb-4">
             Where Ideas Take Shape
           </p>
+          <div className="flex gap-4 justify-center">
+            <a href="https://www.instagram.com/onepointarchitecturestudio?igsh=enIwZjBka3l0YTlu" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-[#E40F14] transition-colors">
+              <span className="sr-only">Instagram</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><rect x={2} y={2} width={20} height={20} rx={5} ry={5} /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/neha-vaish-91763365?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-[#E40F14] transition-colors">
+              <span className="sr-only">LinkedIn</span>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" /></svg>
+            </a>
+          </div>
         </div>
       </div>
     </>

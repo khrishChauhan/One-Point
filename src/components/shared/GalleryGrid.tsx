@@ -123,7 +123,7 @@ export function GalleryGrid() {
             transition={{ duration: 1.0, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-black/50 font-light text-base md:text-xl leading-relaxed max-w-2xl"
           >
-            Showcasing light, form, and material honesty across hospitality and residential spaces.
+            Selected projects across architecture, interiors, and urban design.
           </motion.p>
         </div>
  
@@ -136,7 +136,7 @@ export function GalleryGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.0, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="break-inside-avoid group relative overflow-hidden rounded-lg bg-[#FAF9F6] shadow-sm hover:shadow-md transition-shadow duration-700"
+              className={`break-inside-avoid group relative overflow-hidden rounded-lg bg-[#FAF9F6] shadow-sm hover:shadow-md transition-shadow duration-700 ${index >= 6 ? 'hidden md:block' : ''}`}
             >
               <Link href={`/portfolio/${work.projectSlug}`} className="block relative w-full h-full">
                 <Image

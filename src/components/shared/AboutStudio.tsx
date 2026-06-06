@@ -32,10 +32,7 @@ export function AboutStudio() {
 
             <div className="space-y-6 text-black/60 font-light text-base md:text-lg leading-relaxed max-w-md">
               <p>
-                One Point Architecture Studio is a multidisciplinary design practice creating architecture, interiors, and urban design solutions across India. We believe thoughtful design can shape better experiences, stronger communities, and enduring environments.
-              </p>
-              <p>
-                Through a balance of creativity, technical expertise, and practical execution, we deliver projects that are contextual, functional, and timeless.
+                Architecture, interiors, and urban design shaped through creativity, expertise, and execution.
               </p>
             </div>
 
@@ -48,7 +45,7 @@ export function AboutStudio() {
           </motion.div>
 
           {/* Right: Studio Image Collage */}
-          <div className="lg:col-span-7 relative h-[600px] md:h-[800px] w-full">
+          <div className="lg:col-span-7 relative h-[450px] sm:h-[550px] md:h-[800px] w-full mt-8 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}

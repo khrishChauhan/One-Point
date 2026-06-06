@@ -7,17 +7,17 @@ const reasons = [
   {
     num: "01",
     title: "Human-Centric Design",
-    desc: "We design spaces that respond to how people inhabit them — balancing emotional resonance with precision, light, and material honesty.",
+    desc: "Designing spaces around people, with precision and purpose.",
   },
   {
     num: "02",
     title: "Sustainable & Future-Ready",
-    desc: "Integrating passive solar design, natural ventilation, and local materials to create structures that endure responsibly.",
+    desc: "Creating responsible spaces built to endure.",
   },
   {
     num: "03",
     title: "End-to-End Management",
-    desc: "Overseeing all phases — from concept to commissioning — with strict quality control, detailed drawings, and seamless coordination.",
+    desc: "From concept to completion with seamless execution.",
   },
 ];
 
