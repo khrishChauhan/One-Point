@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 export default function NotFound() {
   return (
     <>
-      <Header transparentInitially={false} />
+      <Header />
 
       <main className="bg-white min-h-[70vh] flex flex-col items-center justify-center pt-32 pb-24 text-center px-6">
         <div className="max-w-md space-y-6">
@@ -35,3 +35,6 @@ export default function NotFound() {
     </>
   );
 }
+
+
+

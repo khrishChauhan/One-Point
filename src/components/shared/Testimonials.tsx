@@ -39,23 +39,29 @@ export function Testimonials() {
   return (
     <section className="bg-white py-24 md:py-32 border-b border-black/5">
       <div className="px-6 md:px-16 max-w-screen-xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
+        >
           <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-4">
             Testimonials
           </p>
           <h2 className="font-serif font-light text-3xl md:text-4xl text-black">
             What Our Clients Say
           </h2>
-        </div>
-
+        </motion.div>
+ 
         <div className="relative min-h-[350px] md:min-h-[280px] flex flex-col justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              exit={{ opacity: 0, y: -25 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-center max-w-4xl mx-auto space-y-8"
             >
               <blockquote className="font-serif text-lg md:text-2xl lg:text-3xl font-light text-black/80 leading-relaxed italic">
@@ -72,13 +78,13 @@ export function Testimonials() {
             </motion.div>
           </AnimatePresence>
         </div>
-
+ 
         {/* Carousel controls */}
         <div className="flex justify-center items-center gap-6 mt-12">
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="w-12 h-12 rounded-xl border border-black/10 flex items-center justify-center text-black/60 hover:text-white hover:bg-[#E40F14] hover:border-[#E40F14] transition-all duration-300"
+            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-white hover:bg-[#E40F14] hover:border-[#E40F14] hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
           </button>
@@ -101,7 +107,7 @@ export function Testimonials() {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="w-12 h-12 rounded-xl border border-black/10 flex items-center justify-center text-black/60 hover:text-white hover:bg-[#E40F14] hover:border-[#E40F14] transition-all duration-300"
+            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-black/60 hover:text-white hover:bg-[#E40F14] hover:border-[#E40F14] hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm"
           >
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -110,3 +116,6 @@ export function Testimonials() {
     </section>
   );
 }
+
+
+

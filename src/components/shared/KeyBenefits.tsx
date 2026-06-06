@@ -47,7 +47,7 @@ export function KeyBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-                className="flex flex-col items-start p-6 bg-white rounded-xl shadow-xs border border-black/5"
+                className="flex flex-col items-start p-6 bg-white rounded-lg shadow-xs border border-black/5"
               >
                 <div className="w-12 h-12 rounded-lg bg-[#E40F14]/5 flex items-center justify-center text-[#E40F14] mb-6">
                   <Icon className="w-6 h-6 stroke-[1.5]" />
@@ -66,3 +66,4 @@ export function KeyBenefits() {
     </section>
   );
 }
+

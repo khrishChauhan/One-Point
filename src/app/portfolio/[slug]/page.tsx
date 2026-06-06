@@ -43,7 +43,7 @@ export default function ProjectDetailsPage({ params }: PageProps) {
 
   return (
     <>
-      <Header transparentInitially={true} />
+      <Header />
 
       <main className="bg-white min-h-screen">
         {/* Cinematic Fullscreen Hero */}
@@ -206,7 +206,7 @@ export default function ProjectDetailsPage({ params }: PageProps) {
             <div className="pt-8">
               <Link
                 href={`/portfolio/${nextProject.slug}`}
-                className="inline-block bg-white text-black px-10 py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#E40F14] hover:text-white transition-all duration-500"
+                className="inline-block bg-white text-black px-10 py-4 rounded-2xl text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#E40F14] hover:text-white transition-all duration-500"
               >
                 View Project
               </Link>

@@ -160,3 +160,30 @@
 .animate-fade-in {
   animation: fadeIn 1.2s ease forwards;
 }
+
+/* Lenis smooth scroll overrides */
+html.lenis,
+html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+html.lenis,
+html.lenis-smooth body {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-blocked {
+  overflow: hidden;
+}
+
+/* Prevent iframe scrolling hijacking when scrolling over it */
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+.lenis.lenis-smooth iframe.interactive-map {
+  pointer-events: auto;
+}

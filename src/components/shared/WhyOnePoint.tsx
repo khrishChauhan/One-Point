@@ -1,74 +1,110 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const reasons = [
   {
+    num: "01",
     title: "Human-Centric Design",
-    desc: "We design spaces around the rituals, needs, and emotional responses of the people who will inhabit them. Our architecture is always a backdrop for human experience, never just a statement of form.",
+    desc: "We design spaces that respond to how people inhabit them — balancing emotional resonance with precision, light, and material honesty.",
   },
   {
-    title: "End-to-End Management",
-    desc: "From the first conceptual sketch to the final interior styling, we offer unified oversight. This ensures that the design intent is rigorously maintained through the complex realities of construction.",
-  },
-  {
+    num: "02",
     title: "Sustainable & Future-Ready",
-    desc: "We integrate passive climate strategies, sustainable material sourcing, and adaptive spatial planning to ensure our structures endure aesthetically and environmentally.",
+    desc: "Integrating passive solar design, natural ventilation, and local materials to create structures that endure responsibly.",
+  },
+  {
+    num: "03",
+    title: "End-to-End Management",
+    desc: "Overseeing all phases — from concept to commissioning — with strict quality control, detailed drawings, and seamless coordination.",
   },
 ];
 
 export function WhyOnePoint() {
   return (
-    <section id="why-us" className="bg-[#1E1E1E] py-24 md:py-36">
+    <section id="why-us" className="bg-[#111] text-white py-24 md:py-36 relative overflow-hidden">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 lg:sticky lg:top-32"
-          >
-            <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-6">
-              WHY ONE POINT
-            </p>
-            <h2 className="font-serif font-light text-4xl md:text-5xl text-white leading-tight mb-8">
-              Architecture Built on Rigor & Empathy
-            </h2>
-            <p className="text-white/60 font-light text-lg leading-relaxed mb-12">
-              Our studio operates at the intersection of meticulous structural logic and deep human empathy. We don&apos;t just build enclosures; we craft enduring environments.
-            </p>
-            
-            <a
-              href="#contact"
-              className="inline-block bg-white text-black px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#E40F14] hover:text-white transition-colors duration-500"
-            >
-              Start a Conversation
-            </a>
-          </motion.div>
-
-          <div className="lg:col-span-7 space-y-12 lg:space-y-20 pt-8 lg:pt-0">
-            {reasons.map((reason, idx) => (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: idx * 0.15 }}
-                className="relative pl-8 md:pl-12 border-l border-white/10"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          
+          {/* Left: Content */}
+          <div className="space-y-16 md:space-y-24">
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-medium mb-6"
               >
-                {/* Red dot indicator */}
-                <div className="absolute top-3 -left-[5px] w-[9px] h-[9px] rounded-full bg-[#E40F14]" />
-                
-                <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">
-                  {reason.title}
-                </h3>
-                <p className="text-white/60 font-light text-base md:text-lg leading-relaxed max-w-2xl">
-                  {reason.desc}
-                </p>
-              </motion.div>
-            ))}
+                Our Approach
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 1.0, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="font-serif font-light text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-8 max-w-lg"
+              >
+                Built on Rigor <br/>
+                <span className="italic text-white/70">&amp; Empathy.</span>
+              </motion.h2>
+            </div>
+ 
+            {/* Reasons List */}
+            <div className="space-y-12">
+              {reasons.map((reason, idx) => (
+                <motion.div
+                  key={reason.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 1.0, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="pl-6 border-l border-white/20 hover:border-[#E40F14] transition-colors duration-500 group"
+                >
+                  <div className="flex items-baseline gap-4 mb-3">
+                    <span className="text-[#E40F14] font-sans text-[10px] tracking-widest font-medium">
+                      {reason.num}
+                    </span>
+                    <h3 className="font-serif text-2xl md:text-3xl font-light group-hover:text-white transition-colors duration-300">
+                      {reason.title}
+                    </h3>
+                  </div>
+                  <p className="text-white/50 font-sans font-light text-base leading-relaxed max-w-md">
+                    {reason.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <a
+                href="#team"
+                className="inline-block border border-white/20 text-white px-10 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-white hover:text-black hover:scale-105 active:scale-95 transition-all duration-500 shadow-sm"
+              >
+                Meet The Team
+              </a>
+            </motion.div>
           </div>
+
+          {/* Right: Sticky Visual Anchor */}
+          <div className="hidden lg:block sticky top-32 h-[80vh] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/assets/private residence/IMG_20201109_165840_1.jpg"
+              alt="Architectural details emphasizing rigor and empathy"
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
+            {/* Dark gradient overlay for elegance */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111]/80 via-transparent to-transparent" />
+          </div>
+
         </div>
       </div>
     </section>

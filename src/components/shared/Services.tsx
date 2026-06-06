@@ -68,7 +68,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group cursor-default relative overflow-hidden bg-white p-8 rounded-2xl border border-black/5 min-h-[320px] flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+              className="group cursor-default relative overflow-hidden bg-white p-8 rounded-lg border border-black/5 min-h-[320px] flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
             >
               {/* Background Image Preview on Hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none z-0">
@@ -99,3 +99,4 @@ export function Services() {
     </section>
   );
 }
+
