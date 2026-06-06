@@ -23,27 +23,6 @@ export function Team() {
     <section id="team" className="bg-[#FAF9F6] py-24 md:py-36">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
         
-        {/* Full-width Cinematic Image Intro */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.96, y: 30 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full h-[50vh] md:h-[60vh] relative rounded-2xl overflow-hidden mb-24 md:mb-32 shadow-xl"
-        >
-          <Image
-            src="/assets/private residence/IMG_20201109_163452.jpg"
-            alt="Studio Design Philosophy"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center text-center px-4">
-             <h2 className="font-serif font-light text-4xl md:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1] max-w-4xl">
-               Visionary Leadership. <br/> <span className="italic text-white/80">Precise Execution.</span>
-             </h2>
-          </div>
-        </motion.div>
  
         {/* Editorial Portraits */}
         <div className="space-y-32">
