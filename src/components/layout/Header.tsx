@@ -57,11 +57,11 @@ export function Header({ transparentInitially = true }: HeaderProps) {
           <Image 
             src="/assets/logo.png" 
             alt="One Point Architecture Studio Logo" 
-            width={180} 
-            height={40} 
+            width={240} 
+            height={54} 
             className={cn(
-              "transition-all duration-500 w-auto h-8 sm:h-10",
-              isTransparent ? "brightness-0 invert" : "brightness-100"
+              "transition-all duration-500 w-auto h-10 sm:h-12",
+              isTransparent ? "brightness-0 invert opacity-90" : "brightness-100 opacity-90 hover:opacity-100"
             )}
             priority
           />
@@ -76,16 +76,17 @@ export function Header({ transparentInitially = true }: HeaderProps) {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-sans text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-500 relative py-2 block",
+                  "font-sans text-[11px] uppercase tracking-[0.25em] font-normal transition-all duration-500 relative py-2 block",
                   isTransparent
                     ? isActive
-                      ? "text-[#E40F14]"
-                      : "text-white/80 hover:text-white"
+                      ? "text-white"
+                      : "text-white/60 hover:text-white/90"
                     : isActive
-                    ? "text-[#E40F14] font-semibold"
-                    : "text-black/60 hover:text-black",
+                    ? "text-brand-charcoal"
+                    : "text-brand-charcoal/50 hover:text-brand-charcoal/80",
                   // Underline hover effect
-                  "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-[#E40F14] hover:after:w-full after:transition-all after:duration-500"
+                  "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-[#E40F14] hover:after:w-full after:transition-all after:duration-500",
+                  isActive && "after:w-full"
                 )}
               >
                 {link.name}

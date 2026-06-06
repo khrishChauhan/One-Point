@@ -53,7 +53,7 @@ export function HeroSlideshow() {
             initial={{ scale: 1 }}
             animate={{ scale: 1.05 }}
             transition={{ duration: 6, ease: "linear" }}
-            className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"
+            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"
           />
         </motion.div>
       </AnimatePresence>
@@ -86,17 +86,45 @@ export function HeroSlideshow() {
           <div className="flex flex-wrap items-center gap-6 pointer-events-auto">
             <a
               href="#portfolio"
-              className="bg-white text-black px-8 py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#E40F14] hover:text-white transition-colors duration-500"
+              className="bg-white text-black px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#E40F14] hover:text-white transition-colors duration-500"
             >
               Explore Our Work
             </a>
             <a
               href="#contact"
-              className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-colors duration-500"
+              className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-colors duration-500"
             >
               Start Your Project
             </a>
           </div>
+        </motion.div>
+      </div>
+
+      {/* Supporting Metrics */}
+      <div className="hidden lg:flex absolute bottom-32 right-16 xl:right-32 z-20 flex-col gap-10 pointer-events-auto text-right">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={isReady ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+        >
+          <span className="block text-white text-4xl font-serif font-light mb-2">15+</span>
+          <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Years Experience</span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={isReady ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, delay: 1.0, ease: "easeOut" }}
+        >
+          <span className="block text-white text-4xl font-serif font-light mb-2">40+</span>
+          <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Projects Delivered</span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={isReady ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+        >
+          <span className="block text-white text-4xl font-serif font-light mb-2">12</span>
+          <span className="block text-white/50 text-[9px] uppercase tracking-[0.3em]">Cities Served</span>
         </motion.div>
       </div>
 
@@ -121,8 +149,8 @@ export function HeroSlideshow() {
       </div>
 
       {/* Scroll indicator right edge */}
-      <div className="hidden md:flex absolute right-16 bottom-0 top-0 z-20 flex-col justify-end pb-32 pointer-events-none items-center">
-        <span className="text-white/40 text-[9px] uppercase tracking-[0.4em] origin-bottom-right -rotate-90 mb-12">
+      <div className="hidden md:flex absolute right-6 md:right-16 bottom-0 top-0 z-20 flex-col justify-end pb-12 pointer-events-none items-center">
+        <span className="text-white/40 text-[9px] uppercase tracking-[0.4em] origin-bottom-right -rotate-90 mb-16">
           Scroll
         </span>
         <motion.div

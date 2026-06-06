@@ -147,7 +147,7 @@ export function GalleryGrid() {
         <div className="text-center mt-16 md:mt-20">
           <Link
             href="/portfolio"
-            className="inline-block border border-black/10 text-black px-10 py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-semibold hover:border-[#E40F14] hover:text-white hover:bg-[#E40F14] transition-all duration-500"
+            className="inline-block border border-black/10 text-black px-10 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-semibold hover:border-[#E40F14] hover:text-white hover:bg-[#E40F14] transition-all duration-500"
           >
             Explore Full Portfolio
           </Link>

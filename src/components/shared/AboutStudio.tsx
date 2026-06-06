@@ -43,7 +43,7 @@ export function AboutStudio() {
 
             <a
               href="#contact"
-              className="inline-block border border-black/10 text-black px-8 py-3 rounded-xl text-xs uppercase tracking-[0.2em] font-medium hover:border-[#E40F14] hover:text-[#E40F14] transition-colors duration-500"
+              className="inline-block border border-black/10 text-black px-8 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:border-[#E40F14] hover:text-[#E40F14] transition-colors duration-500"
             >
               Meet the Team
             </a>

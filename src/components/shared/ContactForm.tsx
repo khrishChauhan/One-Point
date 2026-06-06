@@ -132,7 +132,7 @@ export function ContactForm() {
           type="submit"
           whileHover={{ backgroundColor: "#c00d11" }}
           whileTap={{ scale: 0.98 }}
-          className="w-full sm:w-auto px-12 py-4 bg-[#E40F14] rounded-xl text-white text-xs uppercase tracking-[0.25em] font-medium transition-colors duration-300 focus:outline-none"
+          className="w-full sm:w-auto px-12 py-4 bg-[#E40F14] rounded-full text-white text-xs uppercase tracking-[0.25em] font-medium transition-colors duration-300 focus:outline-none"
         >
           Send Inquiry
         </motion.button>
