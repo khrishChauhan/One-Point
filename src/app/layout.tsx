@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "One Point Architecture Studio is a premier architecture, interior, and urban design practice based in Lucknow. Where Ideas Take Shape.",
 };
 
+import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,8 +32,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <WhatsAppButton />
       </body>
     </html>
   );
