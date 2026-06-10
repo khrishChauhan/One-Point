@@ -48,11 +48,7 @@ export function Testimonials() {
                 — Ajay Chandani
               </cite>
               
-              <span className="text-black/60 font-sans font-light text-sm md:text-base block uppercase tracking-widest mt-2">
-                Home Interiors • Krishna Nagar, Lucknow
-              </span>
-              
-              <p className="text-[#E40F14] font-sans font-light text-sm italic pt-4">
+              <p className="text-[#E40F14] font-sans font-light text-sm italic pt-2">
                 "Got results with 100% efficiency."
               </p>
             </div>
