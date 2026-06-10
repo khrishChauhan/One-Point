@@ -47,9 +47,12 @@ export const projects: Project[] = [
     scope: "Architecture & Interior Design",
     description:
       "A premium fine-dining experience defined by spatial fluidity, warm wood accents, and custom ambient lighting. The project features a sequence of intimate booths, dynamic spatial zones, and rich material selections that elevated the dining atmosphere from ordinary to extraordinary. The design emphasizes clean horizontal lines, integrated lighting coves, and high-end artisanal finishes.",
-    coverImage: imgResturant("WhatsApp Image 2026-05-26 at 12.53.59.jpeg"),
-    heroImage: imgResturant("WhatsApp Image 2026-05-26 at 12.53.59.jpeg"),
+    coverImage: imgResturant("new_hero_1.png"),
+    heroImage: imgResturant("new_hero_1.png"),
     completedImages: [
+      { src: imgResturant("new_hero_1.png"), alt: "Changoz Restaurant - Premium Interior View 1" },
+      { src: imgResturant("new_hero_2.png"), alt: "Changoz Restaurant - Premium Interior View 2" },
+      { src: imgResturant("new_hero_3.png"), alt: "Changoz Restaurant - Premium Interior View 3" },
       { src: imgResturant("WhatsApp Image 2026-05-26 at 12.53.59.jpeg"), alt: "Changoz Restaurant - Main dining hall overview", caption: "Main dining hall overview showcasing custom timber ceiling fins and seating zoning." },
       { src: imgResturant("WhatsApp Image 2026-05-26 at 12.54.00.jpeg"), alt: "Changoz Restaurant - Table seating layout detail", caption: "Detailed view of the banquette seating and warm wood wall cladding." },
       { src: imgResturant("WhatsApp Image 2026-05-26 at 12.54.00 (1).jpeg"), alt: "Changoz Restaurant - Atmospheric spot lighting", caption: "Close-up of ambient brass pendant lamps casting soft warm light over tables." },
