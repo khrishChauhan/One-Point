@@ -7,28 +7,39 @@ import { Footer } from "@/components/layout/Footer";
 import { projects } from "@/lib/projects";
 import { motion as m, AnimatePresence as Ap } from "framer-motion";
 
-// Map all projects' gallery images
-const projectsImages = projects.map(project =>
-  project.galleryImages.map(img => ({
-    ...img,
-    projectTitle: project.title,
-    projectSlug: project.slug,
-  }))
-);
-
-// Interleave the images dynamically to create a premium blended experience
-const interleavedImages: Array<{ src: string; alt: string; caption: string; projectTitle: string; projectSlug: string }> = [];
-const maxLen = Math.max(...projectsImages.map(arr => arr.length));
-
-for (let idx = 0; idx < maxLen; idx++) {
-  for (let pIdx = 0; pIdx < projectsImages.length; pIdx++) {
-    if (idx < projectsImages[pIdx].length) {
-      interleavedImages.push(projectsImages[pIdx][idx]);
-    }
-  }
-}
-
 export default function PortfolioPage() {
+  const commercialProjects = projects.filter((p) => p.category === "Commercial");
+  const residentialProjects = projects.filter((p) => p.category === "Residential");
+
+  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+    <m.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 1.0, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative block w-full"
+    >
+      <Link href={`/portfolio/${project.slug}`} className="block w-full">
+        <div className="relative aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-xl bg-black/5 mb-6 border border-black/5">
+          <Image
+            src={project.coverImage}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            priority={index === 0}
+          />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+        </div>
+        <div className="flex flex-col items-start px-2">
+          <h3 className="font-serif text-2xl md:text-3xl font-light text-black group-hover:text-[#E40F14] transition-colors duration-500">
+            {project.title}
+          </h3>
+        </div>
+      </Link>
+    </m.div>
+  );
+
   return (
     <>
       <Header />
@@ -44,52 +55,59 @@ export default function PortfolioPage() {
               Selected Works
             </h1>
             <p className="text-black/50 font-light text-sm md:text-base mt-6 leading-relaxed max-w-xl">
-              Every detail is a decision. Explore our complete archive of space, form, and texture across all completed residential and hospitality projects.
+              Every detail is a decision. Explore our complete archive of space, form, and texture across all completed commercial and residential projects.
             </p>
           </div>
 
-          {/* Clean CSS Columns Masonry Layout */}
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            <Ap mode="popLayout">
-              {interleavedImages.map((image, idx) => {
-                return (
-                  <m.div
-                    key={`${image.projectSlug}-${idx}`}
-                    layout
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.8, delay: (idx % 10) * 0.05, ease: "easeOut" }}
-                    className="break-inside-avoid group relative block w-full overflow-hidden rounded-2xl bg-[#FAF9F6] border border-black/5"
-                  >
-                    <Link href={`/portfolio/${image.projectSlug}`} className="block">
-                      <div className="relative w-full">
-                        <Image
-                          src={image.src}
-                          alt={image.alt}
-                          width={800}
-                          height={1200}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                          loading="lazy"
-                        />
-                      </div>
-                      
-                      {/* Premium Minimal Hover Overlay */}
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/70 transition-colors duration-500 ease-out flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100">
-                        <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                          <h3 className="text-white font-serif text-2xl md:text-3xl font-light leading-tight mb-3">
-                            {image.projectTitle}
-                          </h3>
-                          <div className="w-12 h-[1px] bg-[#E40F14]" />
-                        </div>
-                      </div>
-                    </Link>
-                  </m.div>
-                );
-              })}
-            </Ap>
-          </div>
+          <Ap mode="popLayout">
+            {/* Commercial Projects */}
+            {commercialProjects.length > 0 && (
+              <div className="mb-24 md:mb-36">
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center gap-6 mb-12 md:mb-16"
+                >
+                  <h3 className="text-black/60 font-sans text-sm md:text-base uppercase tracking-[0.3em] font-medium whitespace-nowrap">
+                    Commercial Projects
+                  </h3>
+                  <div className="h-[1px] w-full bg-black/10" />
+                </m.div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                  {commercialProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Residential Projects */}
+            {residentialProjects.length > 0 && (
+              <div className="mb-16">
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center gap-6 mb-12 md:mb-16"
+                >
+                  <h3 className="text-black/60 font-sans text-sm md:text-base uppercase tracking-[0.3em] font-medium whitespace-nowrap">
+                    Residential Projects
+                  </h3>
+                  <div className="h-[1px] w-full bg-black/10" />
+                </m.div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                  {residentialProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </Ap>
         </div>
       </main>
 

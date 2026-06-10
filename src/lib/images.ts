@@ -1,5 +1,4 @@
 // Central image registry for One Point Architecture Studio
-// All images are in /public/assets/
 import { projects } from "./projects";
 
 function imgResturant(filename: string): string {
@@ -13,8 +12,8 @@ function imgPrivateHouse(filename: string): string {
 export interface ProjectImage {
   src: string;
   alt: string;
-  category: "Residential" | "Hospitality" | "Final Interiors" | "Concept / Development" | "Site / Structure";
-  title: string;
+  category: "Completed Project" | "Construction Journey" | "Residential" | "Commercial";
+  title?: string;
 }
 
 // Curated top-tier landscape images for hero rotation (used on Homepage Hero)
@@ -27,16 +26,21 @@ export const heroImages: string[] = [
 ];
 
 // All available images structured dynamically from the projects database
-export const allImages: ProjectImage[] = projects.flatMap((project) =>
-  project.galleryImages.map((img) => ({
+export const allImages: ProjectImage[] = projects.flatMap((project) => [
+  ...project.completedImages.map((img) => ({
     src: img.src,
     alt: img.alt,
-    category: project.category === "Residential" ? ("Residential" as const) : ("Hospitality" as const),
+    category: "Completed Project" as const,
     title: img.caption,
-  }))
-);
+  })),
+  ...project.constructionImages.map((img) => ({
+    src: img.src,
+    alt: img.alt,
+    category: "Construction Journey" as const,
+    title: img.caption,
+  })),
+]);
 
-// Fallbacks for layout imports
-export const finalImages = allImages;
-export const constructionImages = allImages;
-export const conceptImages = allImages;
+export const finalImages = allImages.filter(img => img.category === "Completed Project");
+export const constructionImages = allImages.filter(img => img.category === "Construction Journey");
+export const conceptImages: ProjectImage[] = [];

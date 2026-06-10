@@ -18,6 +18,7 @@ export default function ProjectDetailsPage({ params }: PageProps) {
   const { slug } = use(params);
   const project = getProjectBySlug(slug);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [activeLightboxGallery, setActiveLightboxGallery] = useState<"completed" | "construction">("completed");
 
   // Scroll to top when slug changes
   useEffect(() => {
@@ -30,16 +31,26 @@ export default function ProjectDetailsPage({ params }: PageProps) {
 
   const nextProject = getNextProject(slug);
 
-  // Map project's gallery images to format expected by LightboxModal
-  const mappedImages = project.galleryImages.map((img) => ({
+  // Map galleries for the lightbox
+  const completedMappedImages = project.completedImages.map((img) => ({
     src: img.src,
     alt: img.alt,
-    category: "Final Interiors" as const,
+    category: "Completed Project" as const,
     title: img.caption,
   }));
 
-  const handleOpen = (idx: number) => setLightboxIndex(idx);
-  const handleClose = () => setLightboxIndex(null);
+  const constructionMappedImages = project.constructionImages.map((img) => ({
+    src: img.src,
+    alt: img.alt,
+    category: "Construction Journey" as const,
+    title: img.caption,
+  }));
+
+  const handleOpenLightbox = (idx: number, galleryType: "completed" | "construction") => {
+    setActiveLightboxGallery(galleryType);
+    setLightboxIndex(idx);
+  };
+  const handleCloseLightbox = () => setLightboxIndex(null);
 
   return (
     <>
@@ -78,7 +89,7 @@ export default function ProjectDetailsPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Project Metadata Table Strip */}
+        {/* Project Overview Table Strip */}
         <section className="border-b border-black/5 py-10 bg-[#FAF9F6]">
           <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -111,23 +122,23 @@ export default function ProjectDetailsPage({ params }: PageProps) {
                   Project Type
                 </span>
                 <span className="text-[#E40F14] font-medium text-sm md:text-base mt-1 block">
-                  {project.category}
+                  {project.projectType}
                 </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Editorial Narrative Section */}
+        {/* Editorial Narrative Section / Overview */}
         <section className="py-24 md:py-32">
           <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
               <div className="lg:col-span-5">
                 <span className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-4 block">
-                  The Design Story
+                  Project Overview
                 </span>
                 <h2 className="font-serif font-light text-3xl md:text-4xl text-black leading-tight">
-                  Shaping spaces that foster ritual & connection
+                  Design & Execution
                 </h2>
               </div>
               <div className="lg:col-span-7">
@@ -139,47 +150,93 @@ export default function ProjectDetailsPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Gallery Masonry */}
-        <section className="py-16 md:py-24 bg-[#FAF9F6] border-y border-black/5">
-          <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
-            <div className="mb-12">
-              <span className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-3 block">
-                Visual Showcase
-              </span>
-              <h3 className="font-serif font-light text-2xl md:text-3xl text-black">
-                Capturing the Details
-              </h3>
-            </div>
+        {/* Completed Project Images */}
+        {project.completedImages && project.completedImages.length > 0 && (
+          <section className="py-16 md:py-24 bg-[#FAF9F6] border-y border-black/5">
+            <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
+              <div className="mb-12">
+                <span className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-light mb-3 block">
+                  Visual Showcase
+                </span>
+                <h3 className="font-serif font-light text-2xl md:text-3xl text-black">
+                  Completed Project
+                </h3>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {project.galleryImages.map((img, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer bg-white border border-black/5"
-                  onClick={() => handleOpen(idx)}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-[#E40F14]/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-                    <span className="text-white text-xs uppercase tracking-[0.2em] font-semibold border border-white/30 px-6 py-3 rounded-xl bg-white/5 backdrop-blur-xs">
-                      Zoom Image
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {project.completedImages.map((img, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className={`group relative aspect-[4/3] md:aspect-[3/2] rounded-xl overflow-hidden cursor-pointer bg-white border border-black/5 ${idx === 0 ? 'md:col-span-2 aspect-[16/9] md:aspect-[21/9]' : ''}`}
+                    onClick={() => handleOpenLightbox(idx, "completed")}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes={idx === 0 ? "100vw" : "(max-width: 768px) 100vw, 50vw"}
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-[#E40F14]/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                      <span className="text-white text-xs uppercase tracking-[0.2em] font-semibold border border-white/30 px-6 py-3 rounded-xl bg-white/5 backdrop-blur-xs">
+                        Zoom Image
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Construction Journey Images */}
+        {project.constructionImages && project.constructionImages.length > 0 && (
+          <section className="py-16 md:py-24 bg-white border-b border-black/5">
+            <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
+              <div className="mb-12">
+                <span className="text-black/40 text-[10px] uppercase tracking-[0.4em] font-light mb-3 block">
+                  Process & Progress
+                </span>
+                <h3 className="font-serif font-light text-2xl md:text-3xl text-black">
+                  Construction Journey
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {project.constructionImages.map((img, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="group relative aspect-square rounded-xl overflow-hidden cursor-pointer bg-black/5 border border-black/5"
+                    onClick={() => handleOpenLightbox(idx, "construction")}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 grayscale group-hover:grayscale-0"
+                    />
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                      <span className="text-white text-[10px] uppercase tracking-[0.2em] font-medium border border-white/30 px-4 py-2 rounded-xl bg-white/5 backdrop-blur-xs">
+                        View Progress
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Next Project Footer Navigation */}
         <section className="py-24 md:py-36 bg-black text-white text-center relative overflow-hidden">
@@ -221,9 +278,9 @@ export default function ProjectDetailsPage({ params }: PageProps) {
       <AnimatePresence>
         {lightboxIndex !== null && (
           <LightboxModal
-            images={mappedImages}
+            images={activeLightboxGallery === "completed" ? completedMappedImages : constructionMappedImages}
             initialIndex={lightboxIndex}
-            onClose={handleClose}
+            onClose={handleCloseLightbox}
           />
         )}
       </AnimatePresence>
