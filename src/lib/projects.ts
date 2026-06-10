@@ -92,6 +92,7 @@ export const projects: Project[] = [
       { src: imgTravelLines("imagee05e03a1.jpg"), alt: "Travel Lines Office - Perspective 1" },
       { src: imgTravelLines("imagee0b259cb.jpg"), alt: "Travel Lines Office - Perspective 2" },
       { src: imgTravelLines("imagee744ca83.jpg"), alt: "Travel Lines Office - Details" },
+      { src: imgTravelLines("image_extra.jpg"), alt: "Travel Lines Office - Additional View" },
     ],
     constructionImages: [],
   },
