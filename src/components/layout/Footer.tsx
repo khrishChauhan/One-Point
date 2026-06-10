@@ -93,9 +93,14 @@ export function Footer() {
 
         {/* Copyright & Legal */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10 text-center md:text-left">
-          <p className="font-sans font-light text-neutral-500 text-xs tracking-wider">
-            &copy; {currentYear} ONE POINT ARCHITECTURE STUDIO. ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex flex-col gap-2 md:gap-1 items-center md:items-start">
+            <p className="font-sans font-light text-neutral-500 text-xs tracking-wider">
+              &copy; {currentYear} ONE POINT ARCHITECTURE STUDIO. ALL RIGHTS RESERVED.
+            </p>
+            <p className="font-sans font-light text-neutral-500 text-xs tracking-wider">
+              Developed by <a href="https://clickaarambh.com/" target="_blank" rel="noopener noreferrer" className="text-[#E40F14] hover:text-white transition-colors duration-300 font-medium">Click Aarambh Ventures</a>
+            </p>
+          </div>
           <div className="flex gap-8">
             <Link
               href="/privacy"

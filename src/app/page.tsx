@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { HeroSlideshow } from "@/components/shared/HeroSlideshow";
 import { GalleryGrid } from "@/components/shared/GalleryGrid";
 import { AboutStudio } from "@/components/shared/AboutStudio";
+import { Services } from "@/components/shared/Services";
 import { WhyOnePoint } from "@/components/shared/WhyOnePoint";
 import { Team } from "@/components/shared/Team";
 import { Testimonials } from "@/components/shared/Testimonials";
@@ -30,6 +31,9 @@ export default function Home() {
 
         {/* ④ About Studio — studio narrative + lead architect bio */}
         <AboutStudio />
+
+        {/* ④.5 Services — comprehensive design services */}
+        <Services />
 
         {/* ⑤ Why One Point — numbered reasons + Meet the Team CTA */}
         <div className="hidden md:block">

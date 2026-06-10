@@ -4,84 +4,62 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function AboutStudio() {
-  // Use two distinct strong images for the collage
-  const aboutImage1 = "/assets/private residence/IMG_20201109_162908_1.jpg";
-  const aboutImage2 = "/assets/Changoz resturatant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg";
+  const projectImage = "/assets/private residence/IMG_20201109_162908_1.jpg";
 
   return (
-    <section id="about" className="bg-white py-24 md:py-36">
+    <section id="about" className="bg-white py-32 md:py-48">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-          {/* Left: Text content (Trimmed for editorial feel) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          {/* Left: Design Philosophy */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-10"
+            className="space-y-12"
           >
             <div>
               <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-medium mb-6">
-                The Studio
+                Design Philosophy
               </p>
-              <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-black leading-[1.1] tracking-tight">
-                Crafting Spaces <br/>
-                <span className="italic text-black/70">with Purpose.</span>
+              <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-black leading-[1.15] tracking-tight">
+                Designing Spaces <br className="hidden md:block" />
+                With Purpose.
               </h2>
             </div>
 
-            <div className="space-y-6 text-black/60 font-light text-base md:text-lg leading-relaxed max-w-md">
+            <div className="space-y-6 text-black/60 font-sans font-light text-sm md:text-base leading-relaxed max-w-md">
               <p>
-                Architecture, interiors, and urban design shaped through creativity, expertise, and execution.
+                At One Point Architecture Studio, we create architecture, interiors, and urban environments that balance creativity, functionality, and timeless design.
+              </p>
+              <p>
+                Every project is shaped through thoughtful planning, material sensitivity, and human-centered thinking to create spaces that feel purposeful, enduring, and authentic.
               </p>
             </div>
-
-            <a
-              href="#team"
-              className="inline-block border border-black/10 text-black px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-medium hover:border-[#E40F14] hover:text-[#E40F14] hover:bg-[#E40F14]/5 transition-all duration-500"
-            >
-              Meet the Team
-            </a>
           </motion.div>
 
-          {/* Right: Studio Image Collage */}
-          <div className="lg:col-span-7 relative h-[450px] sm:h-[550px] md:h-[800px] w-full mt-8 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-0 right-0 w-[70%] h-[75%] rounded-lg overflow-hidden shadow-2xl"
-            >
+          {/* Right: Project Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative h-[500px] md:h-[700px] w-full"
+          >
+            <div className="absolute inset-0 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
               <Image
-                src={aboutImage1}
-                alt="Architecture details"
+                src={projectImage}
+                alt="One Point Architecture Project"
                 fill
-                sizes="(max-width: 1024px) 70vw, 40vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
                 loading="lazy"
               />
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 40 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1.2, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute bottom-0 left-0 w-[55%] h-[60%] rounded-lg overflow-hidden shadow-2xl border-4 border-white"
-            >
-              <Image
-                src={aboutImage2}
-                alt="Interior details"
-                fill
-                sizes="(max-width: 1024px) 55vw, 30vw"
-                className="object-cover"
-                loading="lazy"
-              />
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+

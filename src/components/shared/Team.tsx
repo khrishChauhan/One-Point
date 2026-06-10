@@ -27,6 +27,21 @@ export function Team() {
     <section id="team" className="bg-[#FAF9F6] py-24 md:py-36">
       <div className="px-6 md:px-16 max-w-screen-2xl mx-auto">
         
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-20 md:mb-32 max-w-3xl"
+        >
+          <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-medium mb-6">
+            Meet the Founders
+          </p>
+          <h2 className="font-serif font-light text-3xl md:text-4xl text-black leading-tight">
+            The visionaries behind One Point Architecture Studio.
+          </h2>
+        </motion.div>
  
         {/* Editorial Portraits */}
         <div className="space-y-20 md:space-y-32">
