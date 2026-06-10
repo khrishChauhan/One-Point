@@ -38,7 +38,7 @@ export function Testimonials() {
 
           <div className="relative z-10 space-y-12">
             <blockquote className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-black leading-tight">
-              "Very nice, helpful & friendly."
+              &ldquo;Very nice, helpful &amp; friendly.&rdquo;
             </blockquote>
             
             <div className="space-y-4">
@@ -49,7 +49,7 @@ export function Testimonials() {
               </cite>
               
               <p className="text-[#E40F14] font-sans font-light text-sm italic pt-2">
-                "Got results with 100% efficiency."
+                &ldquo;Got results with 100% efficiency.&rdquo;
               </p>
             </div>
           </div>
