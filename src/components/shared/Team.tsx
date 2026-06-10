@@ -9,7 +9,7 @@ export function Team() {
       name: "Kushagra",
       qualifications: "B.Arch., M.Arch. (Urban Design)",
       designation: "Founder · Principal Architect",
-      shortBio: "Design-led practice focused on functionality, detail, and lasting impact.",
+      shortBio: "Leads the studio's architectural vision, bringing expertise in architecture, urban design, and project execution.",
       fullBio: "With over 16 years of experience across architecture, urban design, and project execution, Kushagra combines a rigorous design approach with deep technical expertise. Previously an Architectural Designer at Arcop Associates, his focus is on crafting enduring spaces that integrate seamless project management.",
       image: "/assets/kushagra.jpeg"
     },
@@ -17,7 +17,7 @@ export function Team() {
       name: "Neha Vaish",
       qualifications: "B.Arch.",
       designation: "Studio Director",
-      shortBio: "Design-led practice focused on functionality, detail, and lasting impact.",
+      shortBio: "Leads the studio's interior and spatial design initiatives, creating refined and human-centered environments.",
       fullBio: "Neha leads the studio's Interior Design division, specializing in refined residential and corporate spaces. Her approach emphasizes functionality, user experience, and meticulous detailing, contributing significantly to the studio's contemporary design language.",
       image: "/assets/neha.jpeg"
     }
