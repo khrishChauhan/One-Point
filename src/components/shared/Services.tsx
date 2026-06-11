@@ -30,7 +30,7 @@ const services = [
     img: "/assets/Changos Restaurant/WhatsApp Image 2026-05-26 at 12.54.03 (3).jpeg",
   },
   {
-    title: "Urban Design & Planning",
+    title: "Urban Design",
     desc: "Strategic planning shaped around people and place.",
     img: "/assets/Changos Restaurant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg",
   },
