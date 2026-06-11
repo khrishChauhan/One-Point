@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function AboutStudio() {
-  const projectImage = "/assets/private residence/IMG_20201109_162908_1.jpg";
+  const projectImage = "/assets/about_feature_new.jpg";
 
   return (
     <section id="about" className="bg-white py-32 md:py-48">

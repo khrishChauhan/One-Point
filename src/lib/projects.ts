@@ -79,9 +79,10 @@ export const projects: Project[] = [
     year: "2023",
     scope: "Architecture & Interior Design",
     description: "A meticulously crafted residence characterized by its rigid structural grid and expansive use of natural light. The design vocabulary focuses on geometric precision, integrating indoor and outdoor living spaces seamlessly.",
-    coverImage: imgGridHouse("WhatsApp Image 2026-06-06 at 5.54.59 PM (1).jpeg"), // Strong completed image
-    heroImage: imgGridHouse("WhatsApp Image 2026-06-06 at 5.54.59 PM (1).jpeg"),
+    coverImage: imgGridHouse("grid_house_cover_new.jpg"), // Strong completed image
+    heroImage: imgGridHouse("grid_house_cover_new.jpg"),
     completedImages: [
+      { src: imgGridHouse("grid_house_cover_new.jpg"), alt: "The Grid House - Main Cover Perspective" },
       { src: imgGridHouse("WhatsApp Image 2026-06-06 at 5.54.59 PM (1).jpeg"), alt: "The Grid House - Main exterior perspective" },
       { src: imgGridHouse("WhatsApp Image 2026-06-06 at 5.54.50 PM (1).jpeg"), alt: "The Grid House - Detail View" },
       { src: imgGridHouse("WhatsApp Image 2026-06-06 at 5.54.50 PM.jpeg"), alt: "The Grid House - Exterior detail" },
