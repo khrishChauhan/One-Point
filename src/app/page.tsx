@@ -62,7 +62,7 @@ export default function Home() {
                     Get In Touch
                   </p>
                   <h2 className="font-serif font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black leading-[1.15] mb-8 hyphens-none" style={{textWrap: 'balance'}}>
-                    Start Your Architectural Journey
+                    Start your project
                   </h2>
                   <p className="text-black/55 font-sans font-light text-sm md:text-base leading-relaxed max-w-sm">
                     Accepting commissions for residential, hospitality, and commercial projects. Schedule a consultation to explore how we can realize your vision.
