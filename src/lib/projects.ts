@@ -2,7 +2,7 @@
 // Using existing high-quality assets to showcase capabilities across categories
 
 function imgResturant(filename: string): string {
-  return `/assets/Chango's Restaurant/${encodeURIComponent(filename)}`;
+  return `/assets/Changos Restaurant/${encodeURIComponent(filename)}`;
 }
 
 function imgPrivateHouse(filename: string): string {
