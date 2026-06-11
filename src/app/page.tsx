@@ -61,10 +61,8 @@ export default function Home() {
                   <p className="text-[#E40F14] text-[10px] uppercase tracking-[0.4em] font-semibold mb-5 block">
                     Get In Touch
                   </p>
-                  <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-black leading-[1.15] mb-8">
-                    Start Your <br />
-                    Architectural <br />
-                    Journey
+                  <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-black leading-[1.15] mb-8" style={{textWrap: 'balance'}}>
+                    Start Your Architectural Journey
                   </h2>
                   <p className="text-black/55 font-sans font-light text-sm md:text-base leading-relaxed max-w-sm">
                     Accepting commissions for residential, hospitality, and commercial projects. Schedule a consultation to explore how we can realize your vision.
