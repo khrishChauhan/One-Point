@@ -124,8 +124,8 @@ export const projects: Project[] = [
   // COMMERCIAL PROJECTS
   // -----------------------------------------------------
   {
-    id: "Chango's-restaurant",
-    slug: "Chango's-restaurant",
+    id: "changos-restaurant",
+    slug: "changos-restaurant",
     title: "Chango's Restaurant",
     category: "Commercial",
     projectType: "Commercial Interior",
@@ -134,10 +134,10 @@ export const projects: Project[] = [
     scope: "Architecture & Interior Design",
     description:
       "A premium fine-dining experience defined by spatial fluidity, warm wood accents, and custom ambient lighting. The project features a sequence of intimate booths, dynamic spatial zones, and rich material selections that elevated the dining atmosphere from ordinary to extraordinary. The design emphasizes clean horizontal lines, integrated lighting coves, and high-end artisanal finishes.",
-    coverImage: imgResturant("Chango's_cover.png"),
-    heroImage: imgResturant("Chango's_cover.png"),
+    coverImage: imgResturant("changoz_cover.png"),
+    heroImage: imgResturant("changoz_cover.png"),
     completedImages: [
-      { src: imgResturant("Chango's_cover.png"), alt: "Chango's Restaurant - Premium Cover View" },
+      { src: imgResturant("changoz_cover.png"), alt: "Chango's Restaurant - Premium Cover View" },
       { src: imgResturant("new_hero_1.png"), alt: "Chango's Restaurant - Premium Interior View 1" },
       { src: imgResturant("new_hero_2.png"), alt: "Chango's Restaurant - Premium Interior View 2" },
       { src: imgResturant("new_hero_3.png"), alt: "Chango's Restaurant - Premium Interior View 3" },
@@ -205,3 +205,5 @@ export function getNextProject(currentSlug: string): Project {
   }
   return projects[currentIndex + 1];
 }
+
+

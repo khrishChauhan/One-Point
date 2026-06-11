@@ -2,7 +2,7 @@
 import { projects } from "./projects";
 
 function imgResturant(filename: string): string {
-  return `/assets/Chango's Restaurant/${encodeURIComponent(filename)}`;
+  return `/assets/Changos Restaurant/${encodeURIComponent(filename)}`;
 }
 
 function imgPrivateHouse(filename: string): string {
@@ -44,3 +44,4 @@ export const allImages: ProjectImage[] = projects.flatMap((project) => [
 export const finalImages = allImages.filter(img => img.category === "Completed Project");
 export const constructionImages = allImages.filter(img => img.category === "Construction Journey");
 export const conceptImages: ProjectImage[] = [];
+
