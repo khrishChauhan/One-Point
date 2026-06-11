@@ -139,6 +139,8 @@
   /* ── Global Typography: Balanced wrapping for all headings ── */
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
+    hyphens: none;
+    -webkit-hyphens: none;
   }
 
   /* ── Nicer paragraph wrapping — avoids orphaned single words ── */

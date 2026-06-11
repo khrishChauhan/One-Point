@@ -68,7 +68,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group cursor-default relative overflow-hidden bg-white p-10 md:p-12 rounded-xl border border-black/5 min-h-[300px] flex flex-col justify-end transition-all duration-700 hover:border-black/10"
+              className="group cursor-default relative overflow-hidden bg-white p-7 sm:p-10 md:p-12 rounded-xl border border-black/5 min-h-[280px] flex flex-col justify-end transition-all duration-700 hover:border-black/10"
             >
               {/* Background Image Preview on Hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0">
@@ -88,7 +88,7 @@ export function Services() {
               </div>
 
               <div className="relative z-10">
-                <h3 className="font-serif text-2xl lg:text-3xl text-black mb-4 group-hover:text-white transition-colors duration-500">
+                <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-black mb-4 group-hover:text-white transition-colors duration-500 hyphens-none" style={{textWrap: 'balance'}}>
                   {service.title}
                 </h3>
                 
