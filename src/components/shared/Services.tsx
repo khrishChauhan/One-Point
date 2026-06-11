@@ -12,7 +12,7 @@ const services = [
   {
     title: "Interior Design",
     desc: "Thoughtful interiors balancing comfort, materiality, and experience.",
-    img: "/assets/Changoz Restaurant/WhatsApp Image 2026-05-26 at 12.53.59.jpeg",
+    img: "/assets/Chango's Restaurant/WhatsApp Image 2026-05-26 at 12.53.59.jpeg",
   },
   {
     title: "Luxury Residences",
@@ -22,17 +22,17 @@ const services = [
   {
     title: "Commercial Spaces",
     desc: "Refined workplaces crafted for performance and experience.",
-    img: "/assets/Changoz Restaurant/WhatsApp Image 2026-05-26 at 12.54.03.jpeg",
+    img: "/assets/Chango's Restaurant/WhatsApp Image 2026-05-26 at 12.54.03.jpeg",
   },
   {
     title: "Institutional Projects",
     desc: "Efficient environments designed for long-term impact.",
-    img: "/assets/Changoz Restaurant/WhatsApp Image 2026-05-26 at 12.54.03 (3).jpeg",
+    img: "/assets/Chango's Restaurant/WhatsApp Image 2026-05-26 at 12.54.03 (3).jpeg",
   },
   {
     title: "Urban Design & Planning",
     desc: "Strategic planning shaped around people and place.",
-    img: "/assets/Changoz Restaurant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg",
+    img: "/assets/Chango's Restaurant/WhatsApp Image 2026-05-26 at 12.54.03 (6).jpeg",
   },
   {
     title: "Space Planning & Renovation",
