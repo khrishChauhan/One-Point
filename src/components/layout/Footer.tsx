@@ -17,6 +17,7 @@ export function Footer() {
       { name: "Onepointarchitecturestudio@gmail.com", href: "mailto:Onepointarchitecturestudio@gmail.com" },
       { name: "+91 7042747493", href: "tel:+917042747493" },
       { name: "WhatsApp: +91 7042747493", href: "https://wa.me/917042747493" },
+      { name: "Facebook", href: "https://www.facebook.com/share/1EY5Mk5rNC/" },
       { name: "Lucknow, India | Projects Across India", href: "#" },
     ],
   };

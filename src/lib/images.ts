@@ -2,7 +2,7 @@
 import { projects } from "./projects";
 
 function imgResturant(filename: string): string {
-  return `/assets/Changoz resturatant/${encodeURIComponent(filename)}`;
+  return `/assets/Changoz Restaurant/${encodeURIComponent(filename)}`;
 }
 
 function imgPrivateHouse(filename: string): string {

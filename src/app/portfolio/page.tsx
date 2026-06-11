@@ -60,33 +60,9 @@ export default function PortfolioPage() {
           </div>
 
           <Ap mode="popLayout">
-            {/* Commercial Projects */}
-            {commercialProjects.length > 0 && (
-              <div className="mb-24 md:mb-36">
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center gap-6 mb-12 md:mb-16"
-                >
-                  <h3 className="text-black/60 font-sans text-sm md:text-base uppercase tracking-[0.3em] font-medium whitespace-nowrap">
-                    Commercial Projects
-                  </h3>
-                  <div className="h-[1px] w-full bg-black/10" />
-                </m.div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                  {commercialProjects.map((project, index) => (
-                    <ProjectCard key={project.id} project={project} index={index} />
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Residential Projects */}
             {residentialProjects.length > 0 && (
-              <div className="mb-16">
+              <div className="mb-24 md:mb-36">
                 <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -102,6 +78,30 @@ export default function PortfolioPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
                   {residentialProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Commercial Projects */}
+            {commercialProjects.length > 0 && (
+              <div className="mb-16">
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center gap-6 mb-12 md:mb-16"
+                >
+                  <h3 className="text-black/60 font-sans text-sm md:text-base uppercase tracking-[0.3em] font-medium whitespace-nowrap">
+                    Commercial Projects
+                  </h3>
+                  <div className="h-[1px] w-full bg-black/10" />
+                </m.div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                  {commercialProjects.map((project, index) => (
                     <ProjectCard key={project.id} project={project} index={index} />
                   ))}
                 </div>

@@ -65,33 +65,9 @@ export function GalleryGrid() {
           </motion.h2>
         </div>
  
-        {/* Commercial Projects Section */}
-        {commercialProjects.length > 0 && (
-          <div className="mb-24 md:mb-36">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center gap-6 mb-12 md:mb-16"
-            >
-              <h3 className="text-black/60 font-sans text-sm md:text-base uppercase tracking-[0.3em] font-medium whitespace-nowrap">
-                Commercial Projects
-              </h3>
-              <div className="h-[1px] w-full bg-black/10" />
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-              {commercialProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Residential Projects Section */}
         {residentialProjects.length > 0 && (
-          <div className="mb-16">
+          <div className="mb-24 md:mb-36">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,6 +83,30 @@ export function GalleryGrid() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               {residentialProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Commercial Projects Section */}
+        {commercialProjects.length > 0 && (
+          <div className="mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="flex items-center gap-6 mb-12 md:mb-16"
+            >
+              <h3 className="text-black/60 font-sans text-sm md:text-base uppercase tracking-[0.3em] font-medium whitespace-nowrap">
+                Commercial Projects
+              </h3>
+              <div className="h-[1px] w-full bg-black/10" />
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+              {commercialProjects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </div>
