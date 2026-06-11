@@ -3,14 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { projects } from "@/lib/projects";
+import { projects, type Project } from "@/lib/projects";
 
 export function GalleryGrid() {
   // Group projects dynamically by category for future proofing
   const commercialProjects = projects.filter((p) => p.category === "Commercial");
   const residentialProjects = projects.filter((p) => p.category === "Residential");
 
-  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}

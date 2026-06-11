@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { projects } from "@/lib/projects";
+import { projects, type Project } from "@/lib/projects";
 import { motion as m, AnimatePresence as Ap } from "framer-motion";
 
 export default function PortfolioPage() {
   const commercialProjects = projects.filter((p) => p.category === "Commercial");
   const residentialProjects = projects.filter((p) => p.category === "Residential");
 
-  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
     <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
